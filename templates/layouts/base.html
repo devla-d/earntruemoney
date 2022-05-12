@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {% block title %} {% endblock title %} | earntruemoney</title>
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/vendor/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/assets/vendor/aos/aos.css">
+    <link rel="stylesheet" href="/assets/vendor/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="/assets/vendor/glightbox/css/glightbox.css">
+    <link rel="stylesheet" href="/assets/css/animate.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+    <link rel="stylesheet" href="/assets/css/slick.css">
+    <link rel="stylesheet" href="/assets/css/slick-theme.css">
+    <link rel="stylesheet" href="/assets/css/jquery-ui.min.css"> {% block styles %} {% endblock styles %}
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+    {% if messages %} {% for msg in messages %}
+    <div class="msg-dialog   active   ">
+        <div class="msg-dialog-content">
+
+            <div class="msg-icon {{msg.tags}}" style="display: block;">
+                <i class="fas {% if msg.tags == 'warning' %} fa-times {% else %} fa-check {% endif %}"></i>
+            </div>
+            <h2>{% if msg.tags == 'warning' %}Warning ! {% else %} Success ! {% endif %}</h2>
+            <p class="text-center">{{ msg }}</p>
+
+
+            <div class="close-msg-dialog mt-4">
+                <div class="d-grid gap-2 col-4 mx-auto">
+                    <button type="button" class="btn btn-{{msg.tags}} close-auth-dialog">Done</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %} {% endif %}
+
+
+    <main class="wrapper show">
+        <!--[Sidebar Section ]-->
+        <div class="sidebar      d-flex flex-column justify-content-center">
+            <div class="sidebar-header">
+                <div class="language">
+                    <img src="data:image/webp;base64,UklGRoACAABXRUJQVlA4IHQCAABQDwCdASoaABoAPm0skkYkIqGhKA1QgA2JbACdMoR1B6N+IHIGas9wMlr5pPzPmA/qvOAbgD9S/7XlFHPK/rt8G37deilduNGn8T8oD9A7QDeZ5ID2by1/+h5ZfnP/ke4T+pX+V4Df9jApU9eDakszDxY6d8trf31F7okkfXVO+Ra/AAD+0jYtc59zUwE8lYLyg+k/kkj+tKv7+1/qOR2Ggo15LL+9pjmTeiztsy4E0El+tnecFyJpJ4GcMk4dXjlQDgibZM+kM6A+cv4ZzOJpl5hdxTLANlmtDSUd02IQ7fE7YYeav55/F0TtOzkU+NTX6Kxlmm4DAFDraXkHui0jGE+dGBe/sUuZP7xHXEzfkE9P8Np7dfRROO1Qkr0nNfjuV/xECH7EvloD9sYzCzlrsl8n1N4KzxD6iiAf/1O03V7KoOEkr/+LR2lxSFyldd45CXy7R4lwVDVfz+Mx/Is8FgFnadcLD1CzGAv2wijufUVCY5ub3LaLhKXZhSNZJX1MOIabiUBpbzSSUsFJ8qSdT1Ppv1pd4hmH/Uq//XwLtMAc23Y62CqlpQ6mPZUPQqJhqy/kkXleKWaJraQKiTk/FnQ4h8SIOPoQY7f8/AfU7yDtjC4422Bef66QsW/xHP+xVDOX7uudY9x7Fmz0ixOAt/xRj/+dpIO0CvPY8RekmJbc6ef49b7+Dfov+HPL+Z679//lsF3ZSQbNbC3615iwG/dp86P/KYgjcKFV9a69GccH5uOdwsenDkf41rrTY5vf+B0VEnq9CU64QUD5k4CSbckwm1ump/A6m4l45YHTyERJiPcpQnmJpyH/OVU/yO6YAAAA"
+                        alt="">
+                    <select class="custom-select py-1   form-control" id="language" onchange="changeLanguageByButtonClick()">
+                        <option value="">Select language</option>
+                         <option value="af">Afrikanns</option>
+                         <option value="sq">Albanian</option>
+                         <option value="ar">Arabic</option>
+                         <option value="hy">Armenian</option>
+                         <option value="eu">Basque</option>
+                         <option value="bn">Bengali</option>
+                         <option value="bg">Bulgarian</option>
+                         <option value="ca">Catalan</option>
+                         <option value="km">Cambodian</option>
+                         <option value="zh-CN">Chinese (Mandarin)</option>
+                         <option value="hr">Croation</option>
+                         <option value="cs">Czech</option>
+                         <option value="da">Danish</option>
+                         <option value="nl">Dutch</option>
+                         <option value="en">English</option>
+                         <option value="et">Estonian</option>
+                         <option value="fj">Fiji</option>
+                         <option value="fi">Finnish</option>
+                         <option value="fr">French</option>
+                         <option value="ka">Georgian</option>
+                         <option value="de">German</option>
+                         <option value="el">Greek</option>
+                         <option value="gu">Gujarati</option>
+                         <option value="he">Hebrew</option>
+                         <option value="hi">Hindi</option>
+                         <option value="hu">Hungarian</option>
+                         <option value="is">Icelandic</option>
+                         <option value="id">Indonesian</option>
+                         <option value="ga">Irish</option>
+                         <option value="it">Italian</option>
+                         <option value="ja">Japanese</option>
+                         <option value="jw">Javanese</option>
+                         <option value="ko">Korean</option>
+                         <option value="la">Latin</option>
+                         <option value="lv">Latvian</option>
+                         <option value="lt">Lithuanian</option>
+                         <option value="mk">Macedonian</option>
+                         <option value="ms">Malay</option>
+                         <option value="ml">Malayalam</option>
+                         <option value="mt">Maltese</option>
+                         <option value="mi">Maori</option>
+                         <option value="mr">Marathi</option>
+                         <option value="mn">Mongolian</option>
+                         <option value="ne">Nepali</option>
+                         <option value="no">Norwegian</option>
+                         <option value="fa">Persian</option>
+                         <option value="pl">Polish</option>
+                         <option value="pt">Portuguese</option>
+                         <option value="pa">Punjabi</option>
+                         <option value="qu">Quechua</option>
+                         <option value="ro">Romanian</option>
+                         <option value="ru">Russian</option>
+                         <option value="sm">Samoan</option>
+                         <option value="sr">Serbian</option>
+                         <option value="sk">Slovak</option>
+                         <option value="sl">Slovenian</option>
+                         <option value="es">Spanish</option>
+                         <option value="sw">Swahili</option>
+                         <option value="sv">Swedish </option>
+                         <option value="ta">Tamil</option>
+                         <option value="tt">Tatar</option>
+                         <option value="te">Telugu</option>
+                         <option value="th">Thai</option>
+                         <option value="bo">Tibetan</option>
+                         <option value="to">Tonga</option>
+                         <option value="tr">Turkish</option>
+                         <option value="uk">Ukranian</option>
+                         <option value="ur">Urdu</option>
+                         <option value="uz">Uzbek</option>
+                         <option value="vi">Vietnamese</option>
+                         <option value="cy">Welsh</option>
+                         <option value="xh">Xhosa</option>
+                     </select>
+                </div>
+                <div class="dismiss active " type="button">
+                    <span class="bars"></span>
+                    <span class="bars"></span>
+                    <span class="bars"></span>
+                </div>
+
+            </div>
+
+            <ul class="side-menu">
+                <li><a href="/" class=""><i class="fas fa-home"></i><span>Home</span> </a></li>
+                <li><a href="{% url 'aboutpage' %}" class=""><i class="fas fa-exclamation"></i><span>About Us</span>  </a></li>
+                <li><a href="{% url 'partnerspage' %}" class=""><i class="fas fa-handshake"></i><span>Partners</span> </a></li>
+                <li><a href="{% url 'faqpage' %}" class=""><i class="fas fa-question-circle"></i><span>Faqs</span> </a></li>
+                <li><a href="{% url 'privacypage' %}" class=""><i class="fas fa-lock"></i><span>Privacy</span> </a></li>
+                <li><a href="{% url 'contactpage' %}" class=""><i class="fas fa-envelope"></i><span>Support</span> </a></li>
+
+
+            </ul>
+
+            <ul class="contact-info">
+                <li class="phone "><i class="fas fa-phone"></i> +1(206)463 890</li>
+                <li class="mail "><i class="fas fa-envelope"></i> support@webapp101.com</li>
+            </ul>
+            <ul class="social  ">
+                <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-whatsapp"></i></a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+            </ul>
+        </div>
+        <div class="page-overlay  "></div>
+        <!--[Sidebar Section Ends]-->
+
+        <!--[header]-->
+        <header id="topheader">
+            <div class="top-bar-i">
+                <ul class="contact-info">
+                    <li class="phone "><i class="fas fa-phone"></i> +1(206)463 890</li>
+                    <li class="mail hidden-mb "><i class="fas fa-envelope"></i> support@webapp101.com</li>
+                </ul>
+                <ul class="social hidden-mb ">
+                    <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fab fa-whatsapp"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                </ul>
+
+                <a href="{% url 'sign_in' %}" class="bk-btn"><i class="fas fa-sign-in-alt"></i> Sign In</a>
+
+                <a href="{% url 'sign_up' %}" class="bk-btn"><i class="fas fa-user-plus"></i> Sign Up</a>
+                <div class="language hidden-mb ">
+                    <img src="data:image/webp;base64,UklGRoACAABXRUJQVlA4IHQCAABQDwCdASoaABoAPm0skkYkIqGhKA1QgA2JbACdMoR1B6N+IHIGas9wMlr5pPzPmA/qvOAbgD9S/7XlFHPK/rt8G37deilduNGn8T8oD9A7QDeZ5ID2by1/+h5ZfnP/ke4T+pX+V4Df9jApU9eDakszDxY6d8trf31F7okkfXVO+Ra/AAD+0jYtc59zUwE8lYLyg+k/kkj+tKv7+1/qOR2Ggo15LL+9pjmTeiztsy4E0El+tnecFyJpJ4GcMk4dXjlQDgibZM+kM6A+cv4ZzOJpl5hdxTLANlmtDSUd02IQ7fE7YYeav55/F0TtOzkU+NTX6Kxlmm4DAFDraXkHui0jGE+dGBe/sUuZP7xHXEzfkE9P8Np7dfRROO1Qkr0nNfjuV/xECH7EvloD9sYzCzlrsl8n1N4KzxD6iiAf/1O03V7KoOEkr/+LR2lxSFyldd45CXy7R4lwVDVfz+Mx/Is8FgFnadcLD1CzGAv2wijufUVCY5ub3LaLhKXZhSNZJX1MOIabiUBpbzSSUsFJ8qSdT1Ppv1pd4hmH/Uq//XwLtMAc23Y62CqlpQ6mPZUPQqJhqy/kkXleKWaJraQKiTk/FnQ4h8SIOPoQY7f8/AfU7yDtjC4422Bef66QsW/xHP+xVDOX7uudY9x7Fmz0ixOAt/xRj/+dpIO0CvPY8RekmJbc6ef49b7+Dfov+HPL+Z679//lsF3ZSQbNbC3615iwG/dp86P/KYgjcKFV9a69GccH5uOdwsenDkf41rrTY5vf+B0VEnq9CU64QUD5k4CSbckwm1ump/A6m4l45YHTyERJiPcpQnmJpyH/OVU/yO6YAAAA"
+                        alt="">
+                    <div>
+                        <select class="custom-select py-1   form-control" id="language" onchange="changeLanguageByButtonClick()">
+                            <option value="">Select language</option>
+                             <option value="af">Afrikanns</option>
+                             <option value="sq">Albanian</option>
+                             <option value="ar">Arabic</option>
+                             <option value="hy">Armenian</option>
+                             <option value="eu">Basque</option>
+                             <option value="bn">Bengali</option>
+                             <option value="bg">Bulgarian</option>
+                             <option value="ca">Catalan</option>
+                             <option value="km">Cambodian</option>
+                             <option value="zh-CN">Chinese (Mandarin)</option>
+                             <option value="hr">Croation</option>
+                             <option value="cs">Czech</option>
+                             <option value="da">Danish</option>
+                             <option value="nl">Dutch</option>
+                             <option value="en">English</option>
+                             <option value="et">Estonian</option>
+                             <option value="fj">Fiji</option>
+                             <option value="fi">Finnish</option>
+                             <option value="fr">French</option>
+                             <option value="ka">Georgian</option>
+                             <option value="de">German</option>
+                             <option value="el">Greek</option>
+                             <option value="gu">Gujarati</option>
+                             <option value="he">Hebrew</option>
+                             <option value="hi">Hindi</option>
+                             <option value="hu">Hungarian</option>
+                             <option value="is">Icelandic</option>
+                             <option value="id">Indonesian</option>
+                             <option value="ga">Irish</option>
+                             <option value="it">Italian</option>
+                             <option value="ja">Japanese</option>
+                             <option value="jw">Javanese</option>
+                             <option value="ko">Korean</option>
+                             <option value="la">Latin</option>
+                             <option value="lv">Latvian</option>
+                             <option value="lt">Lithuanian</option>
+                             <option value="mk">Macedonian</option>
+                             <option value="ms">Malay</option>
+                             <option value="ml">Malayalam</option>
+                             <option value="mt">Maltese</option>
+                             <option value="mi">Maori</option>
+                             <option value="mr">Marathi</option>
+                             <option value="mn">Mongolian</option>
+                             <option value="ne">Nepali</option>
+                             <option value="no">Norwegian</option>
+                             <option value="fa">Persian</option>
+                             <option value="pl">Polish</option>
+                             <option value="pt">Portuguese</option>
+                             <option value="pa">Punjabi</option>
+                             <option value="qu">Quechua</option>
+                             <option value="ro">Romanian</option>
+                             <option value="ru">Russian</option>
+                             <option value="sm">Samoan</option>
+                             <option value="sr">Serbian</option>
+                             <option value="sk">Slovak</option>
+                             <option value="sl">Slovenian</option>
+                             <option value="es">Spanish</option>
+                             <option value="sw">Swahili</option>
+                             <option value="sv">Swedish </option>
+                             <option value="ta">Tamil</option>
+                             <option value="tt">Tatar</option>
+                             <option value="te">Telugu</option>
+                             <option value="th">Thai</option>
+                             <option value="bo">Tibetan</option>
+                             <option value="to">Tonga</option>
+                             <option value="tr">Turkish</option>
+                             <option value="uk">Ukranian</option>
+                             <option value="ur">Urdu</option>
+                             <option value="uz">Uzbek</option>
+                             <option value="vi">Vietnamese</option>
+                             <option value="cy">Welsh</option>
+                             <option value="xh">Xhosa</option>
+                         </select>
+                    </div>
+
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <div class="logo">
+                                <a href="./index.html">
+                                    <img src="data:image/webp;base64,UklGRlgCAABXRUJQVlA4TEsCAAAvVcAGEM9AkG1TjVnf+goCgSSN/V3mEgikOI7RNsg20ilU4VjOX+URPpHqcWcfABQAAEMhQbbttm3eBYjyiWanc/9LRUnjAiL6PwFaDjOzWy9bL9ahRvpr3BC7pBbBMd6iQdbaAL1lwGsf3mNAPqj4tyhgB3KvcUM+iddbFHDjIIddNwekuukRbBoZfDnrdgE4KycDCAeHBmYWIC+6twhV6j5ZhHKS8GZmHvKJEnC130r4LkkJ8hRuNcga/pbkuHbjImk2sKNxAaR+ZtA0Dwddql7qkJSyJAUYm4uoXTnSCMypH3RIWmfIUjapQup+bNoq48YqQTuTbsec+iZD3RTwUutSAUu3Zg990SFrHWD8jmQT3CuH07YBQ7OBeS3dLkPbOJz+pE2kqUHYDaDvoq2AsXA4rRtcf0QjAZgkg7TTQQI3Fh2c5gZxYxD/jFQBxu8MYCwCRC0rXAuDvImQ/5QKcEvpqIPT0oOtDOIig62GAzvp1BNdYL9TIK4ctFWGvEhwr24P99l9lBcGYZfBFgOc1hHst0KCetLIR7Yo4HYXjEWDsAlQfqdi0E4q7ihBkwbQVhWSlhXSxkOTLCqDLUIy6JJF6eP7V1Wwg+EIkpQgrQJ+rG6wky5dRQXiZK6nRbj18et5vlWg7AKuT91BnQzXtLaTayqXNByuSw1TnoqXvj3P83Mi1qlcuKZlc5DNAlfTn8gQzXVJN1xmmFQgmmvS9+d5flRSZm86NA/EW4dHI0LsmssFsUpShtgkfT7P82VoSMPmppf88v2LAAA="
+                                        alt="" data-pagespeed-url-hash="4265918287" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-10">
+                            <div class="nav-menu">
+                                <nav class="mainmenu">
+                                    <ul>
+                                        <li class=" " data-aos="fade-left" data-aos-delay="100"><a href="/">Home</a></li>
+                                        <li data-aos="fade-left" data-aos-delay="200"><a href="{% url 'aboutpage' %}">About Us</a></li>
+                                        <li data-aos="fade-left" data-aos-delay="300"><a href="{% url 'partnerspage' %}">For Partners</a></li>
+                                        <li data-aos="fade-left" data-aos-delay="400"><a href="{% url 'faqpage' %}">Faqs</a>
+
+                                        </li>
+                                        <li data-aos="fade-left" data-aos-delay="500"><a href="{% url 'privacypage' %}">Privacy</a></li>
+                                        <li data-aos="fade-left" data-aos-delay="600"><a href="{% url 'contactpage' %}">Support</a></li>
+                                    </ul>
+                                </nav>
+                                <div class="hamburger" type="button">
+                                    <span class="bars"></span>
+                                    <span class="bars"></span>
+                                    <span class="bars"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!--[header ends]-->
+
+        <!--[herosection ]-->
+        {% block herosection %} {% endblock herosection %}
+
+
+        <!--[herosection ends]-->
+
+        <div class="content">
+
+
+            {% block content %} {% endblock content %}
+
+
+
+            <footer class="footer footer-main">
+                <div class="marque-line-wrap footer-marque" style="background-color:#444444; width: 100%; height: 40px;">
+
+                </div>
+                <div class="footer-content ">
+                    <div class="container ">
+                        <nav class="footer-menu ">
+                            <ul>
+                                <li class="active "><a href="/"><i class="mm-icon mm1--icon "></i>Home</a></li>
+                                <li><a href="{% url 'aboutpage' %}"><i class="mm-icon mm1--icon "></i>About us</a></li>
+                                <li><a href="{% url 'partnerspage' %} "><i class="mm-icon mm1--icon "></i>For partners</a></li>
+                                <li><a href="{% url 'faqpage' %} "><i class="mm-icon mm1--icon "></i>FAQ</a></li>
+                                <li><a href="{% url 'privacypage' %}"><i class="mm-icon mm1--icon "></i>Privacy</a></li>
+                                <li><a href="{% url 'contactpage' %} "><i class="mm-icon mm1--icon "></i>Support</a></li>
+                            </ul>
+                        </nav>
+                        <div class="footer-bottom ">
+                            <div class="row ">
+                                <div class="col-md-4 order-md-2 ">
+                                    <div class="logo-wrap ">
+                                        <a class="logo " href="/ "><img class="img-fluid " src="/assets/images/logo-f.png" alt=" "></a>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 order-md-3 ">
+                                    <div class="social-button-wrap "><span class="social-button-title ">We are in socials:</span>
+                                        <div class="social-button footer--social ">
+                                            <ul>
+                                                <li><a href="https://twitter.com " target="_blank "><i class="fab fa-twitter "></i></a></li>
+                                                <li><a href="# " target="_blank "><i class="fab fa-skype "></i></a></li>
+                                                <li><a href="https://www.facebook.com " target="_blank "><i class="fab fa-facebook-f "></i></a></li>
+                                                <li><a href="https://t.me/ " target="_blank "><i class="fab fa-telegram-plane "></i><span>Chat</span></a></li>
+                                                <li><a href="https://t.me/ " target="_blank "><i class="fab fa-telegram-plane "></i><span>Group</span></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 order-md-1 ">
+                                    <div class="copyright ">Copyright {{domain}}<br>All rights reserved © 2019</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        </section>
+        </div>
+
+
+
+
+    </main>
+
+
+    <div class="popup"><i class="fa fa-check-circle" id="pop-check"></i> <span id="full-name"></span> from <span id="country-name"></span> just <span id="payment-action"></span> <span id="deposited-withdrew"></span> <span id="full-amount"></span>
+    </div>
+
+    <script src="/assets/vendor/jquery/jquery.min.js "></script>
+    <script src="/assets/js/jquery-ui.min.js"></script>
+    <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.js "></script>
+    <script src="/assets/vendor/aos/aos.js "></script>
+    <script src="/assets/js/wow.min.js "></script>
+    <script src="/assets//js/slick.min.js"></script>
+    <script src="/assets/js/scripts.js "></script>
+
+    <script src="/assets/js/xhamster.min.js"></script>
+
+    {% block scripts %} {% endblock scripts %}
+
+
+    <script>
+        var initiatedPopup = false;
+        $(document).ready(function() {
+
+
+            setInterval(function() {
+
+
+                var firstName = random_names[Math.floor(Math.random() * random_names.length)];
+
+                var lastName = random_names[Math.floor(Math.random() * random_names.length)];
+                var lastNamePreserved = lastName;
+
+
+                var lastNameLength = lastName.length;
+                var isOddLength = (lastNameLength % 2) != 0;
+                var maskNumber = false; //(Math.floor(Math.random() * 2));
+
+                if (!maskNumber) {} else if (lastNameLength == 3) {
+
+                    lastName = "**" + lastName.substr(-1);
+
+                } else if (lastNameLength == 4) {
+
+                    lastName = "**" + lastName.substr(-2);
+
+                } else if (lastNameLength == 5) {
+
+                    lastName = lastName[0] + "**" + lastName.substr(-2);
+
+                } else if (lastNameLength == 6) {
+
+                    lastName = lastName.substr(0, 3) + "**" + lastName.substr(-2);
+
+
+                } else if (lastNameLength == 7) {
+
+                    lastName = lastName.substr(0, 3) + "***" + lastName.substr(-2);
+
+
+                } else {
+
+                    var firstNCharactersToShow = Math.floor(Math.random() * 4);
+
+                    var nCharactersToHide = Math.floor(Math.random() * 4);
+
+
+                    var remainingCharactersLength = -1 * (lastNameLength - (firstNCharactersToShow + nCharactersToHide))
+
+                    astricks = '';
+
+
+                    for (i = 0; i <= 3; i++) {
+
+
+                        astricks += "*";
+                    }
+
+                    lastName = lastName.substr(0, firstNCharactersToShow) + astricks + lastName.substr(remainingCharactersLength);
+
+                }
+
+                var amount1 = getRandomIntInclusive(120, 340).toLocaleString();
+                var amount2 = getRandomIntInclusive(340, 680).toLocaleString();
+                var amount3 = getRandomIntInclusive(400, 800).toLocaleString();
+                var amount4 = getRandomIntInclusive(500, 1000).toLocaleString();
+                var amount5 = getRandomIntInclusive(200, 400).toLocaleString();
+                var amount6 = getRandomIntInclusive(100, 200).toLocaleString();
+                var amount7 = getRandomIntInclusive(1000, 2000).toLocaleString();
+                var amount8 = getRandomIntInclusive(1000, 1500).toLocaleString();
+                var amount9 = getRandomIntInclusive(1500, 2000).toLocaleString();
+                var amount10 = getRandomIntInclusive(2000, 3000).toLocaleString();
+                var amount11 = getRandomIntInclusive(1500, 3000).toLocaleString();
+                var amount12 = getRandomIntInclusive(3500, 5000).toLocaleString();
+                var amount13 = getRandomIntInclusive(4000, 5500).toLocaleString();
+
+                var amount14 = getRandomIntInclusive(5500, 7000).toLocaleString();
+
+                var amount15 = getRandomIntInclusive(6500, 7000).toLocaleString();
+                var amount16 = getRandomIntInclusive(7500, 8000).toLocaleString();
+                var amount17 = getRandomIntInclusive(8500, 9000).toLocaleString();
+                var amount18 = getRandomIntInclusive(9000, 9500).toLocaleString();
+                var amount19 = getRandomIntInclusive(9500, 10000).toLocaleString();
+                var amount20 = getRandomIntInclusive(10000, 12000).toLocaleString();
+
+
+                var amounts = [amount1, amount2, amount3, amount4, amount5, amount6, amount7, amount8, amount9, amount10, amount11, amount12, amount13, amount14, amount15, amount16, amount17, amount18, amount19, amount20];
+
+                var amount = amounts[Math.floor(Math.random() * amounts.length)];
+
+
+                var countries = [{
+                        "country": "Afghanistan"
+                    }, {
+                        "country": "Albania"
+                    }, {
+                        "country": "Algeria"
+                    }, {
+                        "country": "American Samoa"
+                    }, {
+                        "country": "Andorra"
+                    }, {
+                        "country": "Angola"
+                    }, {
+                        "country": "Anguilla"
+                    },
+
+
+                    {
+                        "country": "Argentina"
+                    }, {
+                        "country": "Armenia"
+                    }, {
+                        "country": "Aruba"
+                    }, {
+                        "country": "Australia"
+                    }, {
+                        "country": "Austria"
+                    }, {
+                        "country": "Azerbaijan"
+                    }, {
+                        "country": "Bahamas"
+                    }, {
+                        "country": "Bahrain"
+                    }, {
+                        "country": "Bangladesh"
+                    }, {
+                        "country": "Barbados"
+                    }, {
+                        "country": "Belarus"
+                    }, {
+                        "country": "Belgium"
+                    }, {
+                        "country": "Belize"
+                    }, {
+                        "country": "Benin"
+                    }, {
+                        "country": "Bermuda"
+                    }, {
+                        "country": "Bhutan"
+                    }, {
+                        "country": "Bolivia"
+                    }, {
+                        "country": "Botswana"
+                    }, {
+                        "country": "Brazil"
+                    },
+
+                    {
+                        "country": "Brunei"
+                    }, {
+                        "country": "Bulgaria"
+                    }, {
+                        "country": "Burkina Faso"
+                    }, {
+                        "country": "Burundi"
+                    }, {
+                        "country": "Cambodia"
+                    }, {
+                        "country": "Cameroon"
+                    }, {
+                        "country": "Canada"
+                    }, {
+                        "country": "Cape Verde"
+                    }, {
+                        "country": "Cayman Islands"
+                    }, {
+                        "country": "Chad"
+                    }, {
+                        "country": "Chile"
+                    }, {
+                        "country": "China"
+                    },
+
+                    {
+                        "country": "Colombia"
+                    }, {
+                        "country": "Comoros"
+                    }, {
+                        "country": "Congo"
+                    },
+
+                    {
+                        "country": "Cook Islands"
+                    }, {
+                        "country": "Costa Rica"
+                    }, {
+                        "country": "Ivory Coast"
+                    }, {
+                        "country": "Croatia"
+                    }, {
+                        "country": "Cuba"
+                    }, {
+                        "country": "Cyprus"
+                    }, {
+                        "country": "Czech Republic"
+                    }, {
+                        "country": "Denmark"
+                    }, {
+                        "country": "Djibouti"
+                    }, {
+                        "country": "Dominica"
+                    }, {
+                        "country": "East Timor"
+                    }, {
+                        "country": "Ecuador"
+                    }, {
+                        "country": "Egypt"
+                    }, {
+                        "country": "England"
+                    }, {
+                        "country": "El Salvador"
+                    },
+
+                    {
+                        "country": "Eritrea"
+                    }, {
+                        "country": "Estonia"
+                    }, {
+                        "country": "Ethiopia"
+                    }, {
+                        "country": "Faroe Islands"
+                    }, {
+                        "country": "Fiji Islands"
+                    }, {
+                        "country": "Finland"
+                    }, {
+                        "country": "France"
+                    }, {
+                        "country": "French Guiana"
+                    },
+
+
+                    {
+                        "country": "Gabon"
+                    }, {
+                        "country": "Gambia"
+                    }, {
+                        "country": "Georgia"
+                    }, {
+                        "country": "Germany"
+                    }, {
+                        "country": "Ghana"
+                    }, {
+                        "country": "Gibraltar"
+                    }, {
+                        "country": "Greece"
+                    }, {
+                        "country": "Greenland"
+                    }, {
+                        "country": "Grenada"
+                    }, {
+                        "country": "Guadeloupe"
+                    }, {
+                        "country": "Guam"
+                    }, {
+                        "country": "Guatemala"
+                    }, {
+                        "country": "Guernsey"
+                    }, {
+                        "country": "Guinea"
+                    },
+
+                    {
+                        "country": "Guyana"
+                    }, {
+                        "country": "Haiti"
+                    },
+
+                    {
+                        "country": "Honduras"
+                    }, {
+                        "country": "Hong Kong"
+                    }, {
+                        "country": "Hungary"
+                    }, {
+                        "country": "Iceland"
+                    }, {
+                        "country": "India"
+                    }, {
+                        "country": "Indonesia"
+                    }, {
+                        "country": "Iran"
+                    }, {
+                        "country": "Iraq"
+                    }, {
+                        "country": "Ireland"
+                    }, {
+                        "country": "Israel"
+                    }, {
+                        "country": "Isle of Man"
+                    }, {
+                        "country": "Italy"
+                    }, {
+                        "country": "Jamaica"
+                    }, {
+                        "country": "Japan"
+                    }, {
+                        "country": "Jersey"
+                    }, {
+                        "country": "Jordan"
+                    }, {
+                        "country": "Kazakhstan"
+                    }, {
+                        "country": "Kenya"
+                    }, {
+                        "country": "Kiribati"
+                    }, {
+                        "country": "Kuwait"
+                    }, {
+                        "country": "Kyrgyzstan"
+                    }, {
+                        "country": "Laos"
+                    }, {
+                        "country": "Latvia"
+                    }, {
+                        "country": "Lebanon"
+                    }, {
+                        "country": "Lesotho"
+                    }, {
+                        "country": "Liberia"
+                    }, {
+                        "country": "Liechtenstein"
+                    }, {
+                        "country": "Lithuania"
+                    }, {
+                        "country": "Luxembourg"
+                    }, {
+                        "country": "Macao"
+                    }, {
+                        "country": "Madagascar"
+                    }, {
+                        "country": "Malawi"
+                    }, {
+                        "country": "Malaysia"
+                    }, {
+                        "country": "Maldives"
+                    }, {
+                        "country": "Mali"
+                    }, {
+                        "country": "Malta"
+                    }, {
+                        "country": "Martinique"
+                    }, {
+                        "country": "Mauritania"
+                    }, {
+                        "country": "Mauritius"
+                    }, {
+                        "country": "Mayotte"
+                    }, {
+                        "country": "Mexico"
+                    },
+
+                    {
+                        "country": "Moldova"
+                    }, {
+                        "country": "Monaco"
+                    }, {
+                        "country": "Mongolia"
+                    }, {
+                        "country": "Montserrat"
+                    }, {
+                        "country": "Montenegro"
+                    }, {
+                        "country": "Morocco"
+                    }, {
+                        "country": "Mozambique"
+                    }, {
+                        "country": "Myanmar"
+                    }, {
+                        "country": "Namibia"
+                    }, {
+                        "country": "Nauru"
+                    }, {
+                        "country": "Nepal"
+                    }, {
+                        "country": "Netherlands"
+                    },
+
+                    {
+                        "country": "New Caledonia"
+                    }, {
+                        "country": "New Zealand"
+                    }, {
+                        "country": "Nicaragua"
+                    }, {
+                        "country": "Niger"
+                    }, {
+                        "country": "Nigeria"
+                    }, {
+                        "country": "Niue"
+                    }, {
+                        "country": "Norfolk Island"
+                    }, {
+                        "country": "North Korea"
+                    }, {
+                        "country": "Northern Ireland"
+                    },
+
+                    {
+                        "country": "Norway"
+                    }, {
+                        "country": "Oman"
+                    }, {
+                        "country": "Pakistan"
+                    }, {
+                        "country": "Palau"
+                    }, {
+                        "country": "Palestine"
+                    }, {
+                        "country": "Panama"
+                    },
+
+                    {
+                        "country": "Paraguay"
+                    }, {
+                        "country": "Peru"
+                    }, {
+                        "country": "Philippines"
+                    }, {
+                        "country": "Pitcairn"
+                    }, {
+                        "country": "Poland"
+                    }, {
+                        "country": "Portugal"
+                    }, {
+                        "country": "Puerto Rico"
+                    }, {
+                        "country": "Qatar"
+                    }, {
+                        "country": "Reunion"
+                    }, {
+                        "country": "Romania"
+                    },
+
+                    {
+                        "country": "Rwanda"
+                    }, {
+                        "country": "Saint Helena"
+                    },
+
+                    {
+                        "country": "Saint Lucia"
+                    },
+
+
+                    {
+                        "country": "Samoa"
+                    }, {
+                        "country": "San Marino"
+                    },
+
+                    {
+                        "country": "Saudi Arabia"
+                    }, {
+                        "country": "Scotland"
+                    }, {
+                        "country": "Senegal"
+                    }, {
+                        "country": "Serbia"
+                    }, {
+                        "country": "Seychelles"
+                    }, {
+                        "country": "Sierra Leone"
+                    }, {
+                        "country": "Singapore"
+                    }, {
+                        "country": "Slovakia"
+                    }, {
+                        "country": "Slovenia"
+                    }, {
+                        "country": "Solomon Islands"
+                    }, {
+                        "country": "Somalia"
+                    }, {
+                        "country": "South Africa"
+                    },
+
+                    {
+                        "country": "South Korea"
+                    }, {
+                        "country": "South Sudan"
+                    }, {
+                        "country": "Spain"
+                    }, {
+                        "country": "Sri Lanka"
+                    }, {
+                        "country": "Sudan"
+                    }, {
+                        "country": "Suriname"
+                    },
+
+                    {
+                        "country": "Swaziland"
+                    }, {
+                        "country": "Sweden"
+                    }, {
+                        "country": "Switzerland"
+                    }, {
+                        "country": "Syria"
+                    }, {
+                        "country": "Tajikistan"
+                    }, {
+                        "country": "Tanzania"
+                    }, {
+                        "country": "Thailand"
+                    },
+
+                    {
+                        "country": "Togo"
+                    },
+
+                    {
+                        "country": "Tonga"
+                    },
+
+                    {
+                        "country": "Tunisia"
+                    }, {
+                        "country": "Turkey"
+                    },
+
+                    {
+                        "country": "Tuvalu"
+                    }, {
+                        "country": "Uganda"
+                    }, {
+                        "country": "Ukraine"
+                    },
+
+                    {
+                        "country": "United Kingdom"
+                    }, {
+                        "country": "United States"
+                    },
+
+                    {
+                        "country": "Uruguay"
+                    }, {
+                        "country": "Uzbekistan"
+                    }, {
+                        "country": "Vanuatu"
+                    }, {
+                        "country": "Venezuela"
+                    }, {
+                        "country": "Vietnam"
+                    }, {
+                        "country": "Wales"
+                    },
+
+                    {
+                        "country": "Yemen"
+                    }, {
+                        "country": "Zambia"
+                    }, {
+                        "country": "Zimbabwe"
+                    }
+                ]
+
+
+                $('#full-amount').text('$' + amount + '.' + Math.floor(Math.random() * 99).toString());
+                $('#country-name').text(countries[Math.floor((Math.random() * countries.length - 1))].country)
+                $('#full-name').text(firstName);
+                var paymentActions = ["Invested", "Withdrew"];
+
+                $('#payment-action').text(paymentActions[Math.floor(Math.random() * paymentActions.length)]);
+                initiatedPopup = true;
+
+
+            }, 5000);
+
+
+            setInterval(function() {
+                $('.popup').fadeToggle(5000);
+            }, 5000);
+
+
+
+
+
+
+        });
+    </script>
+    <script src="/assets/js/calc.js"></script>
+    <script>
+        $(function() {
+            $('.amount').on('change keyup', function() {
+                var field = $(this).val();
+                var amount = parseFloat($(this).val());
+                var total = $(this).data('total');
+                var total_amount = amount / 100 * total;
+                total_amount = total_amount.toFixed(2);
+
+                var daily = $(this).data('daily');
+                var daily_amount = amount / 100 * daily;
+                daily_amount = daily_amount.toFixed(2);
+                if (field != '') {
+                    var parent = $(this).parents('form');
+                    parent.find('.calc-daily').text(daily_amount);
+                    parent.find('.calc-total').text(total_amount);
+                }
+
+            });
+
+            $('.form-plan,.form-event').submit(function() {
+                if ($(this).find('select[name="type"] option:selected,select[name="ec"] option:selected').val() == 0) {
+                    alert('Select payment system!');
+                    return false;
+                }
+            });
+
+
+
+
+        });
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+{% extends 'layouts/base.html' %} {% block title %} Support {% endblock title %} {% block herosection %}
+
+<!--[banner section ]-->
+
+<div id="banner" class="set-bg" data-bg="/assets/images/banner2.jpg">
+    <div class="container">
+        <div class="row   ml-b-30">
+            <div class="col-lg-10  mrb-30">
+                <div class="banner-content">
+
+                    <div class="breadcrumb-area">
+                        <h2 class="title text-left">Support</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">support</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--[banner ends]-->
+
+{% endblock herosection %} {% block content %}
+
+
+
+
+<section class="section-page mt-5">
+    <div class="container">
+
+
+        <h1 class="section-title"><span>Company</span>Contacts</h1>
+        <div class="contacts-content">
+            <div class="row">
+                <div class="col-xl-3 col-md-6">
+                    <div class="contacts-support">
+                        <div class="contacts-support__item" data-aos="fade-up" data-aos-delay="100"><i class="contacts-support__icon skype--icon"></i>
+                            <div class="contacts-support__title">Skype</div>
+                            <div class="contacts-support__value"><a href="#" target="_blank">skype_support</a></div>
+                        </div>
+                        <div class="contacts-support__item" data-aos="fade-up" data-aos-delay="300"><i class="contacts-support__icon telegram--icon"></i>
+                            <div class="contacts-support__title">Telegram Chat</div>
+                            <div class="contacts-support__value"><a href="#" target="_blank">earntruemoney</a></div>
+                        </div>
+                        <div class="contacts-support__item" data-aos="fade-up" data-aos-delay="400"><i class="contacts-support__icon telegram--icon"></i>
+                            <div class="contacts-support__title">Telegram Group</div>
+                            <div class="contacts-support__value"><a href="#" target="_blank">earntruemoney</a></div>
+                        </div>
+                        <div class="contacts-support__item" data-aos="fade-up" data-aos-delay="500"><i class="contacts-support__icon sp--icon"></i>
+                            <div class="contacts-support__title">Support</div>
+                            <div class="contacts-support__value"><a href="#" target="_blank">Support@{{domain}}</a></div>
+                        </div>
+                        <div class="contacts-support__item" data-aos="fade-up" data-aos-delay="600"><i class="contacts-support__icon local--icon"></i>
+                            <div class="contacts-support__title">Address</div>
+                            <div class="contacts-support__value">
+                                123 Disney Street Slim Av. Brooklyn Bridge, NY, New York </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-5 col-md-6">
+                    <div class="map" data-aos="fade-up">
+                        <iframe src="https://maps.google.com/maps?q=Unit%201213,%2012/F,%20Wing%20On%20Plaza,%2062%20Mody%20Road%20Tsim%20Sha%20Tsui%20East%20Kowloon%20Hong%20Kong&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+                    </div>
+                </div>
+                <div class="col-xl-4">
+
+
+
+
+                    <form method=post name=mainform class="form-contacts"><input type="hidden" name="form_id" value="16515944977263"><input type="hidden" name="form_token" value="0e8d55da3b21db62b9b6b376ca28d34e">
+                        <input type=hidden name=a value=support>
+                        <input type=hidden name=action value=send>
+
+
+                        <div class="form-contacts__title">Send message</div>
+                        <div class="form-item">
+                            <div class="label-title">Your name</div>
+                            <label class="label-form">
+<input class="input-form" type="text" name="name" value="">
+</label>
+                        </div>
+                        <div class="form-item">
+                            <div class="label-title">Your e-mail</div>
+                            <label class="label-form">
+<input class="input-form" type="email" name="email" value="">
+</label>
+                        </div>
+                        <div class="form-item">
+                            <div class="label-title">Your message</div>
+                            <label class="label-form">
+ <textarea class="input-form textarea-form" name="message"></textarea>
+       </label>
+                        </div>
+
+                        <div class="form-contacts__button">
+                            <input disabled type=submit value="Use The Live Support to Chat with Us" class="btn btn-red">
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+
+{% endblock content %}

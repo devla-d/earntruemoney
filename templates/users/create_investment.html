@@ -1,0 +1,148 @@
+{% extends 'layouts/user.html' %} {% load crispy_forms_tags %} {% block title %} {% endblock title %} {% block styles %}
+<style>
+    .radio-toolbar input[type="radio"] {
+        opacity: 0;
+        position: fixed;
+        width: 0;
+    }
+    
+    .radio-toolbar label {
+        color: #ffffff;
+        display: inline-block;
+        background-color: #1d1d1d;
+        ;
+        padding: 5px 15px;
+        font-size: 16px;
+        border: 2px solid #444;
+        border-radius: 5px;
+    }
+    
+    .radio-toolbar label:hover {
+        background-color: #000;
+    }
+    
+    .radio-toolbar input[type="radio"]:checked+label {
+        background-color: #DA5444;
+        border-color: #DA5444;
+    }
+    
+    .plan-card__percent {
+        padding: 35px 10px 4px 6px;
+    }
+    
+    .plan-card__percent .plan-percent.last {
+        color: #ffffff;
+        font-size: 45px;
+    }
+    
+    @media (max-width: 767px) {
+        .plan-card__percent .plan-percent.last {
+            color: #ffffff;
+            font-size: 37px;
+        }
+    }
+</style>
+{% endblock styles %} {% block content %}
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Invest</h1>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Investment</li>
+    </ol>
+</div>
+
+
+<div class="row justify-content-center">
+    <div class="col-8 text-center mb-3 text-success">
+        <p>Deposite Balance</p>
+        <h3>${{user.deposit_balance}}</h3>
+        <strong class="text-whit">Choose A Plan That Suit you</strong>
+    </div>
+</div>
+
+<form method="post">{% csrf_token %}
+    <div class="row">
+        <section class="section-main">
+            <div class="container">
+                <h2 class="section-title"><span>Investment</span> Plans</h2>
+                <div class="plans-list m-plans-list " data-aos="fade-up">
+                    {% for obj in packages %}
+                    <div class="plans-item">
+                        <div class="plan-card" data-percent="140" data-term="20 " data-deposit="included" data-min="200" data-max="5000" data-daily="7">
+                            <div class="plan-card__percent">
+                                <div class="plan-percent {% if obj.name == 'Ruby Plan'  %} last {% endif %}">{{obj.percent}}%</div>
+                                <div class="plan-term">After {{obj.hours}} hrs</div>
+                            </div>
+                            <div class="plan-card__descr">
+                                <ul>
+                                    <li>
+                                        <p>
+                                            {{obj.name}}
+                                            <span class="color-red"></span>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Deposit:
+                                            <span class="color-red">Included</span>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Min deposit -
+                                            <span class="color-red">${{obj.min_amount}}</span>
+                                        </p>
+                                        <p>Max Deposit - <span class="color-red">{% if obj.name == 'Ruby Plan'  %} Unlimited {% else %} ${{obj.max_amount}} {% endif %}</span></p>
+                                    </li>
+
+                                    <li>
+                                        <div class="pay-s-list">
+                                            <div class="pay-s"><i class="pay-icon bitcoin--icon"></i></div>
+                                            <div class="pay-s"><i class="pay-icon ethereum--icon"></i></div>
+                                            <div class="pay-s"><i class="pay-icon litecoin--icon"></i></div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Referral Bonus -
+                                            <span class="color-red">{{obj.ref_percent}}%</span>
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="radio-toolbar">
+                                <input type="radio" name="package" value="{{obj.id}}" id="package_{{obj.id}}" required="">
+                                <label for="package_{{obj.id}}">Select</label>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="form-group ">
+                <label>Amount</label>
+                <input type="number" class="input-form" placeholder="Input The Amount You want to Invest" name="amount" required>
+            </div>
+            <div class="form-group mt-3 mb-4">
+                <button class="btn btn-red btn-block">Submit</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+{% endblock content %}

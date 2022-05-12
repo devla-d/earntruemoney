@@ -1,0 +1,121 @@
+{% extends "layouts/superadmin.html" %} {% load crispy_forms_tags %} {% block stylesheet %} {% endblock stylesheet %} {% block content %}
+
+
+
+
+
+<!-- Container Fluid-->
+<div class="container-fluid" id="container-wrapper">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Packages</h1>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">packages</li>
+        </ol>
+    </div>
+
+    <div class="row  justify-content-center">
+        <div class="col-lg-10 mb-4">
+            <!-- Users -->
+            <div class="card">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Package</h6>
+                    <div>
+                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#createnewpackagemodal">New</button>
+
+                        <button type="button" class="btn btn-primary btn-sm" onclick="get_package()">Edit</button>
+
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table text-nowrap">
+                        <thead>
+                            <tr>
+                                <th class="border-top-0">Name</th>
+                                <th class="border-top-0">Time</th>
+                                <th class="border-top-0">Max</th>
+                                <th class="border-top-0">Min</th>
+                                <th class="border-top-0">Perc</th>
+                                <th class="border-top-0">Ref Perc</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for obj in packages %}
+                            <tr>
+                                <td>{{obj.name}}</td>
+                                <td>${{obj.hours}}</td>
+                                <td>{{obj.max_amount}}</td>
+
+                                <td class=""> {{ obj.min_amount }} </td>
+                                <td class=""> %{{ obj.percent }} </td>
+
+                                <td class=""> %{{ obj.ref_percent }} </td>
+                                <td>
+
+                                    <input type="radio" name="selected_pk" value="{{obj.id}}" class="action-select" required>
+
+                                </td>
+                            </tr>
+                            {% endfor %}
+
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer"></div>
+            </div>
+        </div>
+    </div>
+    <!--Row-->
+
+
+
+
+
+</div>
+<!---Container Fluid-->
+
+
+<!-- Modal -->
+<div class="modal fade" id="createnewpackagemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form action="" method="post">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Create Package</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                </div>
+                <div class="modal-body">
+                    {% csrf_token %} {{ form|crispy}}
+
+
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %} {% block script %}
+<script>
+    function get_package() {
+        var pk = $("input[name='selected_pk']:checked").val()
+        if (pk) {
+            // window.location.href = `/admin/dashboard/packages/${pk}/change/`
+            window.open(`/admin/dashboard/packages/${pk}/change/`, '_blank')
+        }
+
+    }
+</script>
+{% endblock script %}

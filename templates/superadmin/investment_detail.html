@@ -1,0 +1,95 @@
+{% extends "layouts/superadmin.html" %} {% load crispy_forms_tags %} {% block stylesheet %} {% endblock stylesheet %} {% block content %}
+
+
+
+
+
+<!-- Container Fluid-->
+<div class="container-fluid" id="container-wrapper">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Investment Detail</h1>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page"> Detail</li>
+        </ol>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-10 mb-4">
+            <!-- Users -->
+            <div class="card">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary"></h6>
+                </div>
+                <div class="table-responsive table-upgrade">
+                    <table class="table ">
+                        <thead>
+                            <tr>
+                                <th>Investment</th>
+                                <th class="text-center"> Details</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tbody>
+
+                                <tr>
+                                    <th>User</th>
+                                    <td class="text-center text-success">{{investment.user.username}}</td>
+
+                                </tr>
+                                <tr>
+                                    <th>Date</th>
+                                    <td class="text-center text-success">{{investment.date|date:"Y-M-D g:iA"}}</td>
+                                </tr>
+
+                                <tr class="border-0">
+                                    <th>End Date</th>
+                                    <td class="text-center text-success">{{investment.end_date|date:"Y-M-D g:iA"}}</td>
+                                </tr>
+                                <tr class="border-0">
+                                    <th>Amount</th>
+                                    <td class="text-center text-success">${{investment.amount_invested}}</td>
+                                </tr>
+                                <tr class="border-0">
+                                    <th>Package</th>
+                                    <td class="text-center text-success">{{investment.package}}</td>
+                                </tr>
+
+
+                                <tr class="border-0">
+                                    <th>Status</th>
+                                    {% if investment.status == "inactive" %}
+                                    <td class="text-center text-warning"> {{ investment.status }} </td>
+                                    {% elif investment.status == "completed" %}
+                                    <td class="text-center text-success"> {{ investment.status }} </td>
+                                    {% elif investment.status == "active" %}
+                                    <td class="text-center text-primary"> {{ investment.status }} </td>
+                                    {% else %}
+                                    <td class="text-center text-danger"> {{ investment.status }} </td>
+                                    {% endif %}
+                                </tr>
+
+
+
+
+
+
+                            </tbody>
+                    </table>
+                </div>
+                <div class="card-footer">
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Row-->
+
+
+</div>
+<!---Container Fluid-->
+
+
+
+{% endblock content %} {% block script %} {% endblock script %}

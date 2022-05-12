@@ -1,0 +1,672 @@
+{% extends 'layouts/base.html' %} {% block title %} Main {% endblock title %} {% block herosection %}
+<!--[herosection ]-->
+<div class="herosection">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="header-c"><img class="img-fluid" src="/assets/images/c-header.png" alt=""></div>
+            </div>
+            <div class="col-lg-6">
+                <div class="header-pay">
+                    <div class="header-pay__item"><img class="img-fluid" src="/assets/images/bitcoin-logo-g.png" alt=""></div>
+                    <div class="header-pay__item"><img class="img-fluid" src="/assets/images/ethereum-logo-g.png" alt=""></div>
+                    <div class="header-pay__item"><img class="img-fluid" src="/assets/images/payeer-logo-g.png" alt=""></div>
+                    <div class="header-pay__item"><img class="img-fluid" src="/assets/images/litecoin-logo-g.png" alt=""></div>
+                </div>
+                <div class="header-statistic " data-aos="fade-left" data-aos-delay="600">
+                    <div class="header-s-item">
+                        <div class="header-s-item__value">4139</div>
+                        <div class="header-s-item__title">Days<br>Working</div>
+                    </div>
+                    <div class="header-s-item">
+                        <div class="header-s-item__value">4043</div>
+                        <div class="header-s-item__title">{{domain}}<br>Investors</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/js/coingecko-coin-price-marquee-widget.js"></script>
+    <coingecko-coin-price-marquee-widget coin-ids="bitcoin,ethereum,eos,ripple,litecoin" currency="usd" background-color="#444444" locale="en" font-color="#ffffff"></coingecko-coin-price-marquee-widget>
+
+</div>
+
+<!--[herosection ends]-->
+{% endblock herosection %} {% block content %}
+<section class="section-main">
+    <div class="container">
+        <h2 class="section-title"><span>Investment</span> Plans</h2>
+        <div class="plans-list m-plans-list " data-aos="fade-up">
+            <div class="plans-item">
+                <div class="plan-card active" data-percent="110" data-term="5 " data-deposit="return" data-min="20" data-max="500" data-daily="2">
+                    <div class="plan-card__percent">
+                        <div class="plan-percent">20%</div>
+                        <div class="plan-term">After 24 hrs</div>
+                    </div>
+                    <div class="plan-card__descr">
+                        <ul>
+                            <li>
+                                <p>
+                                    BASIC PLAN
+                                    <span class="color-red"></span>
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Deposit:
+                                    <span class="color-red">Included</span>
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Min deposit -
+                                    <span class="color-red">30 USD</span>
+                                </p>
+                                <p>Max Deposit - <span class="color-red">499 USD</span></p>
+
+                            </li>
+                            <li>
+                                <div class="pay-s-list">
+                                    <div class="pay-s"><i class="pay-icon bitcoin--icon"></i></div>
+                                    <div class="pay-s"><i class="pay-icon ethereum--icon"></i></div>
+                                    <div class="pay-s"><i class="pay-icon litecoin--icon"></i></div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                    Referral Bonus-
+                                    <span class="color-red">3 %</span>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="plans-item">
+                <div class="plan-card" data-percent="140" data-term="20 " data-deposit="included" data-min="200" data-max="5000" data-daily="7">
+                    <div class="plan-card__percent">
+                        <div class="plan-percent">40%</div>
+                        <div class="plan-term">After 24 hrs</div>
+                    </div>
+                    <div class="plan-card__descr">
+                        <ul>
+                            <li>
+                                <p>
+                                    GOLD PLAN
+                                    <span class="color-red"></span>
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Deposit:
+                                    <span class="color-red">Included</span>
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Min deposit -
+                                    <span class="color-red">500 USD</span>
+                                </p>
+                                <p>Max Deposit - <span class="color-red">1000 USD</span></p>
+                            </li>
+
+                            <li>
+                                <div class="pay-s-list">
+                                    <div class="pay-s"><i class="pay-icon bitcoin--icon"></i></div>
+                                    <div class="pay-s"><i class="pay-icon ethereum--icon"></i></div>
+                                    <div class="pay-s"><i class="pay-icon litecoin--icon"></i></div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                    Referral Bonus -
+                                    <span class="color-red">3 %</span>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+            <div class="plans-item">
+                <div class="plan-card" data-percent="160" data-term="20 " data-deposit="included" data-min="5000" data-max="50000" data-daily="8">
+                    <div class="plan-card__percent">
+                        <div class="plan-percent">60%</div>
+                        <div class="plan-term">After 48 hrs</div>
+                    </div>
+                    <div class="plan-card__descr">
+                        <ul>
+                            <li>
+                                <p>
+                                    MASTER PLAN
+                                    <span class="color-red"></span>
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Deposit:
+                                    <span class="color-red">Included</span>
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Min deposit -
+                                    <span class="color-red">1000 USD</span>
+                                </p>
+                                <p>Max Deposit - <span class="color-red">1999 USD</span></p>
+                            </li>
+
+                            <li>
+                                <div class="pay-s-list">
+                                    <div class="pay-s"><i class="pay-icon bitcoin--icon"></i></div>
+                                    <div class="pay-s"><i class="pay-icon ethereum--icon"></i></div>
+                                    <div class="pay-s"><i class="pay-icon litecoin--icon"></i></div>
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                    Referral Bonus -
+                                    <span class="color-red">5 %</span>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+        <section class="section-main">
+            <div class="container">
+                <h2 class="section-title"><span>Investment</span> Plans</h2>
+                <div class="plans-list m-plans-list " data-aos="fade-up">
+
+                    <div class="plans-item">
+                        <div class="plan-card" data-percent="140" data-term="20 " data-deposit="included" data-min="200" data-max="5000" data-daily="7">
+                            <div class="plan-card__percent">
+                                <div class="plan-percent">40%</div>
+                                <div class="plan-term">After 24 hrs</div>
+                            </div>
+                            <div class="plan-card__descr">
+                                <ul>
+                                    <li>
+                                        <p>
+                                            GOLD PLAN
+                                            <span class="color-red"></span>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Deposit:
+                                            <span class="color-red">Included</span>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Min deposit -
+                                            <span class="color-red">500 USD</span>
+                                        </p>
+                                        <p>Max Deposit - <span class="color-red">1000 USD</span></p>
+                                    </li>
+
+                                    <li>
+                                        <div class="pay-s-list">
+                                            <div class="pay-s"><i class="pay-icon bitcoin--icon"></i></div>
+                                            <div class="pay-s"><i class="pay-icon ethereum--icon"></i></div>
+                                            <div class="pay-s"><i class="pay-icon litecoin--icon"></i></div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Referral Bonus -
+                                            <span class="color-red">3 %</span>
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+                    <div class="plans-item">
+                        <div class="plan-card" data-percent="160" data-term="20 " data-deposit="included" data-min="5000" data-max="50000" data-daily="8">
+                            <div class="plan-card__percent">
+                                <div class="plan-percent">60%</div>
+                                <div class="plan-term">After 48 hrs</div>
+                            </div>
+                            <div class="plan-card__descr">
+                                <ul>
+                                    <li>
+                                        <p>
+                                            MASTER PLAN
+                                            <span class="color-red"></span>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Deposit:
+                                            <span class="color-red">Included</span>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Min deposit -
+                                            <span class="color-red">1000 USD</span>
+                                        </p>
+                                        <p>Max Deposit - <span class="color-red">1999 USD</span></p>
+                                    </li>
+
+                                    <li>
+                                        <div class="pay-s-list">
+                                            <div class="pay-s"><i class="pay-icon bitcoin--icon"></i></div>
+                                            <div class="pay-s"><i class="pay-icon ethereum--icon"></i></div>
+                                            <div class="pay-s"><i class="pay-icon litecoin--icon"></i></div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Referral Bonus -
+                                            <span class="color-red">5 %</span>
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+                <div class="calc-main " data-aos="fade-right">
+                    <form class="form-calc"><input type="hidden" name="form_id" value="16515064828634"><input type="hidden" name="form_token" value="71d9224af28227910c592e73e7e564d9"><input type="hidden" name="form_id" value="15585904406106"><input type="hidden" name="form_token"
+                            value="1d424b67cca23f1915ee8960a25ca23c">
+                        <div class="row">
+                            <div class="col-xl-3 col-md-6">
+                                <h3 class="section-title text-white " data-aos="fade-right" data-aos-delay="700"><span>Your profit</span>Calculator</h3>
+                            </div>
+                            <div class="col-xl-4 col-md-6">
+                                <div class="form-item " data-aos="fade-right" data-aos-delay="500">
+                                    <div class="label-title">Choose amount</div>
+                                    <div class="label-form">
+                                        <div class="form-calc__range">
+                                            <div id="slider-range" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content">
+                                                <div class="ui-slider-range ui-corner-all ui-widget-header ui-slider-range-min" style="width: 0%;"></div><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 0%;"></span></div><span class="range-left"><span id="range-min">20</span>$</span><span class="range-right"><span id="range-max">500</span>$</span>
+                                        </div>
+                                        <div class="amount-invest">
+                                            Investment amount:
+                                            <span id="amount">20$</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="block-result " data-aos="fade-right" data-aos-delay="300">
+                                    <div class="block-result__item"><span class="block-result__title">
+                            Daily profit:
+                            </span><span class="block-result__value" id="daily">0.40$</span></div>
+                                    <div class="block-result__item"><span class="block-result__title">
+                            Total profit:
+                            </span><span class="block-result__value" id="profit">22.00$</span></div>
+                                </div>
+                            </div>
+                            <div class="col-xl-2 col-md-6">
+                                <div class="form-calc__button " data-aos="fade-right" data-aos-delay="100"><a class="btn btn-red btn--calc" href="?a=signup">Make investment</a></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="section-main section-referrals">
+            <div class="container">
+                <h2 class="section-title"><span><b>Referral</b></span><br>Program</h2>
+                <div class="referrals-block">
+                    <div class="referrals-c-b" data-aos="fade-in"></div>
+                    <div class="referrals-c" data-aos="slide-left"></div>
+                    <div class="referrals-percents">
+                        <ul>
+                            <li>
+                                <div class="r-percent" data-aos="fade-down" data-aos-delay="200"><span>7%</span></div>
+                                <div class="r-point" data-aos="zoom-in" data-aos-delay="800"></div>
+                            </li>
+                            <li>
+                                <div class="r-percent" data-aos="fade-down" data-aos-delay="400"><span>1%</span></div>
+                                <div class="r-point" data-aos="zoom-in" data-aos-delay="1000"></div>
+                            </li>
+                            <li>
+                                <div class="r-percent" data-aos="fade-down" data-aos-delay="600"><span>1%</span></div>
+                                <div class="r-point" data-aos="zoom-in" data-aos-delay="1200"></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-3">
+                        <h2 class="section-title"><span>Advantages of</span> working with us
+                        </h2>
+                        <div class="section-text">
+                            <p>Invest in fiat and cryptocurrency with a team of real professionals! {{domain}} company means only profitable investment strategies, the quick payback of your investments, ability to ensure passive income and a 100% guarantee
+                                of having the investment profits.
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-xl-9">
+                        <div class="m-advantages">
+                            <div class="m-advantages__line"><span data-aos="slide-right" data-aos-duration="2000"></span></div>
+                            <div class="m-advantages__list">
+                                <div class="m-advantages-item">
+                                    <div class="m-advantages-item__line"></div>
+                                    <div class="m-advantages-item__squad" data-aos="zoom-out" data-aos-delay="100" data-aos-easing="ease-in-out-back"></div><i class="m-advantages-item__icon amv1--icon" data-aos-delay="100" data-aos="fade-left"></i>
+                                    <div class="m-advantages-item__title" data-aos="fade-left" data-aos-delay="200">Reliable protection</div>
+                                    <div class="m-advantages-item__text" data-aos="fade-left" data-aos-delay="300">Safety of funds and all the given information due to multilevel data protection systems such as 2FA, DDoS-guard, etc.
+                                    </div>
+                                </div>
+                                <div class="m-advantages-item">
+                                    <div class="m-advantages-item__line"></div>
+                                    <div class="m-advantages-item__squad" data-aos="zoom-out" data-aos-delay="300" data-aos-easing="ease-in-out-back"></div><i class="m-advantages-item__icon amv2--icon" data-aos-delay="300" data-aos="fade-left"></i>
+                                    <div class="m-advantages-item__title" data-aos="fade-left" data-aos-delay="400">Long-term goals</div>
+                                    <div class="m-advantages-item__text" data-aos="fade-left" data-aos-delay="500">Despite the fast investments paying back, we are aimed at long-term cooperation with our partners.</div>
+                                </div>
+                                <div class="m-advantages-item">
+                                    <div class="m-advantages-item__line"></div>
+                                    <div class="m-advantages-item__squad" data-aos="zoom-out" data-aos-delay="500" data-aos-easing="ease-in-out-back"></div><i class="m-advantages-item__icon amv3--icon" data-aos-delay="500" data-aos="fade-left"></i>
+                                    <div class="m-advantages-item__title" data-aos="fade-left" data-aos-delay="600">24-hour support</div>
+                                    <div class="m-advantages-item__text" data-aos="fade-left" data-aos-delay="700">In case if you have some problems, our support service specialists are always ready to give consultation according to the question you have.</div>
+                                </div>
+                                <div class="m-advantages-item">
+                                    <div class="m-advantages-item__line"></div>
+                                    <div class="m-advantages-item__squad" data-aos="zoom-out" data-aos-delay="700" data-aos-easing="ease-in-out-back"></div><i class="m-advantages-item__icon amv4--icon" data-aos-delay="700" data-aos="fade-left"></i>
+                                    <div class="m-advantages-item__title" data-aos="fade-left" data-aos-delay="800">Time-saving</div>
+                                    <div class="m-advantages-item__text" data-aos="fade-left" data-aos-delay="900">We value your time as well as ours. That is why our investment plans have minimal payback periods and allow to have everyday earnings.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <iframe height="460" width="100%" scrolling=no src="https://www.widgets.investing.com/top-cryptocurrencies?theme=darkTheme&roundedCorners=true"></iframe>
+        <section class="section-main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h2 class="section-title"><span>About our</span> Company
+                        </h2>
+                        <div class="section-text">
+                            <p data-aos="fade-up">Today trading is one of the most profitable and popular ways to earn money. Stock exchange trading opens a lot of ways a trader’s financial opportunities of development and allows legally to earn thousands of dollars a day.
+                                However, trading is a complicated system with plenty of various nuances and difficulties which obstruct earning the inexperienced traders.
+                            </p>
+                            <p data-aos="fade-up">Investment {{domain}} company gives a chance to its clients to make profitable currency investments and to earn securely on the Forex market. Our professional traders and financial analytics have been studying markets, monitoring
+                                changes in currency rates and creating the most profitable trading strategies for many years. It allows the company to do its business successfully providing investors with the maximum profits.
+                            </p>
+                        </div>
+                        <div class="a-advantages">
+                            <div class="a-advantages__title" data-aos="fade-up">Ways to earn on the platform</div>
+                            <div class="a-advantages__list">
+                                <div class="a-advantages-item" data-aos="fade-up">
+                                    <div class="a-advantages-item__icon aba1--icon"></div>
+                                    <div class="a-advantages-item__text">Receive regular profits due to the profitable investment in our tariff plans.
+
+                                    </div>
+                                </div>
+                                <div class="a-advantages-item" data-aos="fade-up">
+                                    <div class="a-advantages-item__icon aba2--icon"></div>
+                                    <div class="a-advantages-item__text">
+                                        Provide yourself with stable passive income by participating in our three-level referral program.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="about-c" data-aos="fade-left"><img src="/assets/images/bg/about-img2.png" alt=""></div>
+                        <div class="about-links">
+                            <div class="about-link" data-aos="fade-left" data-aos-delay="100"><a href="?a=login"><i class="link-icon user--icon"></i>Account login</a></div>
+                            <div class="about-link reg--link" data-aos="fade-left" data-aos-delay="300"><a href="?a=signup"><i class="link-icon lock--icon"></i>Registration</a></div>
+
+                        </div>
+                        <blockquote class="about-blockquote" data-aos="fade-up">
+                            <p>AS LONG AS A STOCK IS ACTING RIGHT, AND THE MARKET IS RIGHT, DO NOT BE IN A HURRY TO TAKE PROFITS</p>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-main section-statistic">
+            <div class="container">
+                <h2 class="section-title align--center color--white"><span>Live Statistics</span></h2>
+                <div class="statistic-list" id="counter">
+                    <div class="statistic-item">
+                        <div class="statistic-item__inner">
+                            <div class="statistic-item__icon stt1--icon"></div>
+                            <div class="statistic-item__value"><span class="statistic-number counter--value">4138</span></div>
+                            <div class="statistic-item__title">Days online</div>
+                        </div>
+                    </div>
+
+                    <div class="statistic-item">
+                        <div class="statistic-item__inner">
+                            <div class="statistic-item__icon stt3--icon"></div>
+                            <div class="statistic-item__value"><span class="statistic-number counter--value">694537498.69</span><span>$</span></div>
+                            <div class="statistic-item__title">Total deposits amount</div>
+                        </div>
+                    </div>
+                    <div class="statistic-item">
+                        <div class="statistic-item__inner">
+                            <div class="statistic-item__icon stt4--icon"></div>
+                            <div class="statistic-item__value"><span class="statistic-number counter--value">607075258.99</span><span>$</span></div>
+                            <div class="statistic-item__title">Total withdrawals amount</div>
+                        </div>
+                    </div>
+                    <div class="statistic-item">
+                        <div class="statistic-item__inner">
+                            <div class="statistic-item__icon stt5--icon"></div>
+                            <div class="statistic-item__value"><span class="statistic-number counter--value">4040</span></div>
+                            <div class="statistic-item__title">Total investors</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-main ">
+
+
+            <style type="text/css">
+                .table>tbody>tr>td,
+                .table>tbody>tr>th,
+                .table>tfoot>tr>td,
+                .table>tfoot>tr>th,
+                .table>thead>tr>td,
+                .table>thead>tr>th {
+                    padding: 11px;
+                }
+            </style>
+
+
+            <div class="container">
+
+                <div class="section-content">
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <h3 class="text-uppercase line-bottom-double-line-centered mt-0" style="text-align: center;
+">Latest <span class="text-theme-colored2">Deposit</span></h3>
+                            <table class="table table-bordered">
+                                <tbody>
+
+                                    <tr>
+                                        <!-- <td class="menutxt"><img src="/assets/images/.gif" class="deposit-method"></td> -->
+                                        <td class="menutxt"><span class="deposit-amount">...</span></td>
+                                        <td class="menutxt"><span class="item-a dep-with-names">...</span></td>
+                                    </tr>
+                                    <tr>
+                                        <!-- <td class="menutxt"><img src="/assets/images/.gif" class="deposit-method"></td> -->
+                                        <td class="menutxt"><span class="deposit-amount">...</span></td>
+                                        <td class="menutxt"><span class="item-a dep-with-names">...</span></td>
+                                    </tr>
+                                    <tr>
+                                        <!-- <td class="menutxt"><img src="/assets/images/.gif" class="deposit-method"></td> -->
+                                        <td class="menutxt"><span class="deposit-amount">...</span></td>
+                                        <td class="menutxt"><span class="item-a dep-with-names">...</span></td>
+                                    </tr>
+                                    <tr>
+                                        <!-- <td class="menutxt"><img src="/assets/images/.gif" class="deposit-method"></td> -->
+                                        <td class="menutxt"><span class="deposit-amount">...</span></td>
+                                        <td class="menutxt"><span class="item-a dep-with-names">...</span></td>
+                                    </tr>
+                                    <tr>
+                                        <!-- <td class="menutxt"><img src="/assets/images/.gif" class="deposit-method"></td> -->
+                                        <td class="menutxt"><span class="deposit-amount">...</span></td>
+                                        <td class="menutxt"><span class="item-a dep-with-names">...</span></td>
+                                    </tr>
+                                    <tr>
+                                        <!-- <td class="menutxt"><img src="/assets/images/.gif" class="deposit-method"></td> -->
+                                        <td class="menutxt"><span class="deposit-amount">...</span></td>
+                                        <td class="menutxt"><span class="item-a dep-with-names">...</span></td>
+                                    </tr>
+                                    <tr>
+                                        <!-- <td class="menutxt"><img src="/assets/images/.gif" class="deposit-method"></td> -->
+                                        <td class="menutxt"><span class="deposit-amount">...</span></td>
+                                        <td class="menutxt"><span class="item-a dep-with-names">...</span></td>
+                                    </tr>
+                                    <tr>
+                                        <!-- <td class="menutxt"><img src="/assets/images/.gif" class="deposit-method"></td> -->
+                                        <td class="menutxt"><span class="deposit-amount">...</span></td>
+                                        <td class="menutxt"><span class="item-a dep-with-names">...</span></td>
+                                    </tr>
+                                    <tr>
+                                        <!-- <td class="menutxt"><img src="/assets/images/.gif" class="deposit-method"></td> -->
+                                        <td class="menutxt"><span class="deposit-amount">...</span></td>
+                                        <td class="menutxt"><span class="item-a dep-with-names">...</span></td>
+                                    </tr>
+                                    <tr>
+                                        <!-- <td class="menutxt"><img src="/assets/images/.gif" class="deposit-method"></td> -->
+                                        <td class="menutxt"><span class="deposit-amount">...</span></td>
+                                        <td class="menutxt"><span class="item-a dep-with-names">...</span></td>
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="col-md-6">
+                            <h3 class="text-uppercase line-bottom-double-line-centered mt-0" style="text-align: center;
+">Latest <span class="text-theme-colored2">Withdrawal</span></h3>
+                            <table class="table table-bordered">
+                                <tbody>
+
+                                    <tr>
+
+                                        <td class="menutxt"><span class="deposit-amount">...</span></td>
+                                        <td class="menutxt"><span class="item-a dep-with-names">...</span></td>
+                                    </tr>
+                                    <tr>
+                                        <!-- <td class="menutxt"><img src="/assets/images/.gif" class="deposit-method"></td> -->
+                                        <td class="menutxt"><span class="deposit-amount">...</span></td>
+                                        <td class="menutxt"><span class="item-a dep-with-names">...</span></td>
+                                    </tr>
+                                    <tr>
+                                        <!-- <td class="menutxt"><img src="/assets/images/.gif" class="deposit-method"></td> -->
+                                        <td class="menutxt"><span class="deposit-amount">...</span></td>
+                                        <td class="menutxt"><span class="item-a dep-with-names">...</span></td>
+                                    </tr>
+                                    <tr>
+                                        <!-- <td class="menutxt"><img src="/assets/images/.gif" class="deposit-method"></td> -->
+                                        <td class="menutxt"><span class="deposit-amount">...</span></td>
+                                        <td class="menutxt"><span class="item-a dep-with-names">...</span></td>
+                                    </tr>
+                                    <tr>
+                                        <!-- <td class="menutxt"><img src="/assets/images/.gif" class="deposit-method"></td> -->
+                                        <td class="menutxt"><span class="deposit-amount">...</span></td>
+                                        <td class="menutxt"><span class="item-a dep-with-names">...</span></td>
+                                    </tr>
+                                    <tr>
+                                        <!-- <td class="menutxt"><img src="/assets/images/.gif" class="deposit-method"></td> -->
+                                        <td class="menutxt"><span class="deposit-amount">...</span></td>
+                                        <td class="menutxt"><span class="item-a dep-with-names">...</span></td>
+                                    </tr>
+                                    <tr>
+                                        <!-- <td class="menutxt"><img src="/assets/images/.gif" class="deposit-method"></td> -->
+                                        <td class="menutxt"><span class="deposit-amount">...</span></td>
+                                        <td class="menutxt"><span class="item-a dep-with-names">...</span></td>
+                                    </tr>
+                                    <tr>
+                                        <!-- <td class="menutxt"><img src="/assets/images/.gif" class="deposit-method"></td> -->
+                                        <td class="menutxt"><span class="deposit-amount">...</span></td>
+                                        <td class="menutxt"><span class="item-a dep-with-names">...</span></td>
+                                    </tr>
+                                    <tr>
+                                        <!-- <td class="menutxt"><img src="/assets/images/.gif" class="deposit-method"></td> -->
+                                        <td class="menutxt"><span class="deposit-amount">...</span></td>
+                                        <td class="menutxt"><span class="item-a dep-with-names">...</span></td>
+                                    </tr>
+                                    <tr>
+                                        <!-- <td class="menutxt"><img src="/assets/images/.gif" class="deposit-method"></td> -->
+                                        <td class="menutxt"><span class="deposit-amount">...</span></td>
+                                        <td class="menutxt"><span class="item-a dep-with-names">...</span></td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="section-main">
+            <div class="container">
+                <h2 class="section-title align--center"><span>Payment</span> systems
+                </h2>
+                <ul class="paysystem-list">
+                    <li data-aos="zoom-in-left" data-aos-delay="300"><img class="img-fluid" src="/assets/images/perfectmoney-logo-g.png" alt=""></li>
+                    <li data-aos="zoom-in-left" data-aos-delay="400"><img class="img-fluid" src="/assets/images/bitcoin-logo-r.png" alt=""></li>
+                    <li data-aos="zoom-in-left" data-aos-delay="800"><img class="img-fluid" src="/assets/images/litecoin-logo-r.png" alt=""></li>
+                    <li data-aos="zoom-in-left" data-aos-delay="100"><img class="img-fluid" src="/assets/images/ethereum-logo-r.png" alt=""></li>
+                </ul>
+            </div>
+        </section>
+
+
+        <section class="section-main">
+            <div class="container">
+                <h2 class="section-title align--center"><span>Official</span> Sponsors
+                </h2>
+                <ul class="paysystem-list">
+                    <li data-aos="zoom-in-left" data-aos-delay="300"><img class="img-fluid" src="/assets/images/coinmama-logo-r.png" alt=""></li>
+                    <li data-aos="zoom-in-left" data-aos-delay="200"><img class="img-fluid" src="/assets/images/khchanger-logo-r.png" alt=""></li>
+                    <li data-aos="zoom-in-left" data-aos-delay="400"><img class="img-fluid" src="/assets/images/blockchain-logo-r.png" alt=""></li>
+                    <li data-aos="zoom-in-left" data-aos-delay="800"><img class="img-fluid" src="/assets/images/coink-logo-r.png" alt=""></li>
+                    <li data-aos="zoom-in-left" data-aos-delay="100"><img class="img-fluid" src="/assets/images/perfectmoney-logo-r.png" alt=""></li>
+                </ul>
+            </div>
+        </section>
+
+
+
+
+    </div>
+</section>
+
+{% endblock content %}

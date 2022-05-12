@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock title %} ? earntruemoney.com</title>
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/vendor/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/assets/vendor/aos/aos.css">
+    <link rel="stylesheet" href="/assets/vendor/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="/assets/vendor/glightbox/css/glightbox.css">
+    <link rel="stylesheet" href="/assets/css/animate.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+    <link rel="stylesheet" href="/assets/css/slick.css">
+    <link rel="stylesheet" href="/assets/css/slick-theme.css">
+    <link rel="stylesheet" href="/assets/css/jquery-ui.min.css">
+    <link rel="stylesheet" href="/assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker.min.css"> {% block styles %} {% endblock styles %}
+</head>
+
+<body>
+    {% if messages %} {% for msg in messages %}
+    <div class="msg-dialog   active   ">
+        <div class="msg-dialog-content">
+
+            <div class="msg-icon {{msg.tags}}" style="display: block;">
+                <i class="fas {% if msg.tags == 'warning' %} fa-times {% else %} fa-check {% endif %}"></i>
+            </div>
+            <h2>{% if msg.tags == 'warning' %}Warning ! {% else %} Success ! {% endif %}</h2>
+            <p class="text-center">{{ msg }}</p>
+
+
+            <div class="close-msg-dialog mt-4">
+                <div class="d-grid gap-2 col-4 mx-auto">
+                    <button type="button" class="btn btn-{{msg.tags}} close-auth-dialog">Done</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %} {% endif %}
+
+
+
+    <main class="wrapper dashboard show">
+        <!----[left panel]-->
+        <div class="left-panel">
+            <div class="left-panel-menu">
+                <div class="row mb-4 no-gutters">
+
+                    <div class="col-auto">
+                        <div class="avatar position-relative">
+                            <img src="/assets/images/boy.png" alt=" ">
+                        </div>
+                    </div>
+                    <div class="col pl-3 text-left align-self-center ">
+                        <h6 class="mb-1 text-white ">@{{user.username}}</h6>
+                        <p class="small text-success">{{user.unique_id}}</p>
+                    </div>
+                </div>
+                <hr class="divider">
+
+                <ul>
+                    <li><a href="{% url 'dashboard' %}"><i class="fas fa-fw fa-tachometer-alt "></i> 
+                           <span>Dashbaord</span> </a></li>
+
+                    <li>
+                        <a href="{% url 'withdrawal_' %} "> <i class="far fa-fw fa-credit-card  "></i>
+                            <span>Withdraw</span></a>
+                    </li>
+                    <li><a href="{% url 'transactions_' %}"><i class="fas fa-fw fa-history "></i>
+                            <span>Transactions</span></a></li>
+
+                    <li>
+                        <a href="/#referrals" id="open-ref"> <i class="fas fa-fw fa-users "></i>
+                            <span>Referrals<span></a>
+                                </li>
+                            <li>
+                                <a href="{% url 'settings_' %}"> <i class="fas fa-fw fa-cog fa- "></i>
+                                    <span>Settings</span></a>
+                    </li>
+                    <li>
+                        <a href="{% url 'sign_out' %}">
+                            <i class="fas fa-fw fa-sign-out-alt "></i><span>Logout</span> </a>
+                    </li>
+
+                </ul>
+
+
+            </div>
+
+        </div>
+        <!----[left panel ends]-->
+        <!----[right panel ]-->
+        <div class="right-panel d-flex flex-column">
+            <div class="dashbaordcontent">
+                <!-- TopBar -->
+                <nav class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top">
+                    <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
+<i class="fa fa-bars"></i>
+</button>
+                    <ul class="navbar-nav ml-auto">
+
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle text-or open-notification" href="#" id="alertsDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-bell  fa-fw "></i>
+                            </a>
+
+                        </li>
+
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="img-profile rounded-circle" src="/assets/images/boy.png" style="max-width: 60px">
+                                <span class="ml-2 d-none d-lg-inline text-success small"></span>
+                            </a>
+                            <!-- <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> Settings
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-lock fa-sm fa-fw mr-2 text-gray-400"></i> Change Password
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="javascript:void(0);" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Logout
+                                </a>
+                            </div> -->
+                        </li>
+                    </ul>
+                </nav>
+                <!-- Topbar -->
+
+                <div class="container-fluid">
+                    {% block content %} {% endblock content %}
+
+
+                    <div class="dashboard-footer">
+                        <p class="text-center">copyright@2022 {{domain}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!----[right panel ends]-->
+
+
+    </main>
+
+    <!----[notification panel ]-->
+    <div class="notification-dialog" role="document">
+        <div class="noti-content">
+            <div class="noti-dialog-header ">
+                <h3>Notifications</h3>
+                <span>
+                    <i class="fa fa-times close-notification"></i>
+                </span>
+            </div>
+            <div class="noti-dialog-body">
+                <div class="">
+
+
+
+                    {% for obj in notifications %}
+                    <div class="noti-item">
+
+                        <div class="icon-circle bg-warning">
+                            <i class="fas fa-exclamation-triangle text-white"></i>
+                        </div>
+
+                        <div style="color: #3a3b45;">
+                            <div class="small text-gray-500">{{obj.date|date:"M d, Y"}}</div>
+                            {{obj.body}}
+                        </div>
+                    </div>
+                    {% endfor %}
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!----[notification panel ]-->
+    <!--[referal panel]-->
+    <div class="referral-dialog ">
+        <div class="ref-dialog-content">
+
+            <div class="ref-icon   animate" style="display: block;">
+                <i class="fas fa-check"></i>
+            </div>
+            <h2>Your referrals!</h2>
+            <ul class="ref-menu">
+                <li>
+                    <h3>No of Referrals</h3>
+                    <p>{{referral}}</p>
+                </li>
+                <li>
+                    <h3>Referral Bonus</h3>
+                    <p>${{referral_bonus}}</p>
+                </li>
+                <li>
+                    <label for="">Referral Link</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control ref-link" value="http://{{domain}}/sign-up/?ref-code={{unique_id}}" id="myInput" disabled>
+
+                        <div class="mytooltip input-group-append">
+                            <button type="button" style="height: 43px;" class="input-group-text btn btn-primary" onclick="copyFunction('myInput')" onmouseout="outFunc()">
+                                                              <span class="tooltiptext" id="myTooltip">Copy </span>
+                                                            <span class="txt">Copy</span>  
+                                                              </button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="close-ref-dialog">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+    </div>
+    <!--[referral panel]-->
+
+
+
+    <script src="/assets/vendor/jquery/jquery.min.js "></script>
+    <script src="/assets/js/jquery-ui.min.js "></script>
+    <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.js "></script>
+    <script src="/assets/vendor/aos/aos.js "></script>
+    <script src="/assets/js/wow.min.js "></script>
+    <script src="/assets//js/slick.min.js "></script>
+    <script src="/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+    <script src="/assets/js/scripts.js "></script>
+
+    <!-- <script src="/assets/js/xhamster.min.js "></script> -->
+
+    {% block scripts %} {% endblock scripts %}
+
+    <script>
+        /* Cpy to clipboard*/
+        function copyFunction(input) {
+            var copyText = document.getElementById(input);
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(copyText.value);
+            var tooltip = document.getElementById("myTooltip");
+            tooltip.innerHTML = "Copied";
+        }
+
+        function outFunc() {
+            var tooltip = document.getElementById("myTooltip");
+            tooltip.innerHTML = "Copy Link";
+        }
+    </script>
+
+</body>
+
+</html>

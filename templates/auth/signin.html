@@ -1,0 +1,72 @@
+{% extends 'layouts/base.html' %} {% load crispy_forms_tags %} {% block title %} Sign In {% endblock title %} {% block herosection %}
+
+
+<!--[banner section ]-->
+
+<div id="banner" class="set-bg" data-bg="/assets/images/banner1.jpg">
+    <div class="container">
+        <div class="row   ml-b-30">
+            <div class="  mrb-30">
+                <div class="banner-content">
+
+                    <div class="breadcrumb-area">
+                        <h2 class="title text-left">Sign IN</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Log Into To your Account</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--[banner ends]-->
+
+{% endblock herosection %} {% block content %}
+
+
+<section class="section-page mt-5">
+    <div class="container">
+        <div class="row  d-flex  justify-content-center">
+            <div class="col-lg-6">
+                <h5 style="    color: #DA5344;" data-aos="fade-right">Input Your Login Data:</h5>
+                <form action="" method="post" class="" data-aos="zoom-in">
+                    {% csrf_token %}
+
+                    <div class="form-group mt-3 ">
+                        {{ form.email|as_crispy_field }}
+                    </div>
+
+                    <div class="form-group mt-3 ">
+                        {{ form.password|as_crispy_field }}
+                    </div>
+
+
+
+                    <div class="form-group mt-4  ">
+                        <p class="text-center">Don't have an account? <a href="/sign-up">Sign Up</a></p>
+                    </div>
+                    <div class="form-group mt-4  ">
+                        <p class="text-center"><a href="/password-reset/">Forget Password ?</a></p>
+                    </div>
+                    <div class="row justify-content-center">
+
+                        <div class="form-group mt-4  col-4">
+                            <input type="submit" value="Sign in" class="btn btn-red" placeholder="">
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+{% endblock content %}

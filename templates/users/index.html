@@ -1,0 +1,558 @@
+{% extends 'layouts/user.html' %} {% block title %} {% endblock title %} {% block styles %}
+<style>
+
+</style>
+{% endblock styles %} {% block content %}
+<div class="row">
+    <div class="col-lg-4">
+        <h3 class="wel-txt mb-4">Hi,Welcome Back !</h3>
+    </div>
+</div>
+<div class="containe">
+    <!-- <div class="row mt-4">
+                            <div class="col-lg-3 col-6">
+                                <div class="info-card">
+                                    <div class="info-icon">
+                                        <i class="fas fa-coins"></i>
+                                    </div>
+                                    <div class="info-text">
+                                        <h3>$0.023</h3>
+                                        <p>Available Balance</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-6">
+                                <div class="info-card">
+                                    <div class="info-icon">
+                                        <i class="fas fa-hand-holding-usd"></i>
+                                    </div>
+                                    <div class="info-text">
+                                        <h3>$0.023</h3>
+                                        <p>Deposit Balance</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-6">
+                                <div class="info-card">
+                                    <div class="info-icon">
+                                        <i class="fas fa-donate"></i>
+                                    </div>
+                                    <div class="info-text">
+                                        <h3>$100000</h3>
+                                        <p>Earned</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-6">
+                                <div class="info-card">
+                                    <div class="info-icon">
+                                        <i class="fas fa-coins"></i>
+                                    </div>
+                                    <div class="info-text">
+                                        <h3>$0.023</h3>
+                                        <p>Total withdraw</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+    <div class="user-statistic">
+        <div class="user-statistic__item">
+            <div class="user-statistic__card">
+                <div class="user-statistic__icon st1--icon"></div>
+                <div class="user-statistic__value">
+                    <span>
+                           $<b>{{user.balance}}</b>
+                        </span>
+                </div>
+                <div class="user-statistic__title">Total Balance</div>
+            </div>
+        </div>
+        <div class="user-statistic__item">
+            <div class="user-statistic__card">
+                <div class="user-statistic__icon st2--icon"></div>
+                <div class="user-statistic__value" id="load1">
+                    <span>
+                            $<b>{{user.deposit_balance}}</b>
+                        </span>
+                </div>
+                <div class="user-statistic__title"> deposits Balance</div>
+            </div>
+        </div>
+        <div class="user-statistic__item">
+            <div class="user-statistic__card">
+                <div class="user-statistic__icon st3--icon"></div>
+                <div class="user-statistic__value" id="load2">
+                    <span>
+                            $<b>{{ earnings }}</b>
+                        </span>
+                </div>
+                <div class="user-statistic__title">Earnings</div>
+            </div>
+        </div>
+        <div class="user-statistic__item">
+            <div class="user-statistic__card">
+                <div class="user-statistic__icon st4--icon"></div>
+                <div class="user-statistic__value" id="load3">
+                    <span>
+                            $<b>{{user.total_withdraw}}</b>
+                        </span>
+                </div>
+                <div class="user-statistic__title">Total withdrawn</div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="tip-card card">
+                <!-- <b>Tip</b>
+                <p style="color: #494c57;">Activate an investment plan to strat earning referral bonus</p>
+
+                <h6 style="color: #70737c;">Referral Bonus</h6>
+                <img src="/assets/images/bar.png" class="mt-2" alt="" width="70" height="20">
+                <h1 class="balance-amount mt-2"><span>USD $</span>303,293.00</h1>
+
+
+                <h6 style="color: #70737c;">No Of Referral</h6>
+                <h1 class="balance-amount  ref-count">30</h1> -->
+
+
+
+                <div id="timerblock">
+
+                </div>
+
+                {% if investment != None %}
+                <div class="tip-balance">
+                    <ul>
+                        <li>
+                            <h4>Amount Invested :</h4>
+                            <p>${{investment.amount_invested}}</p>
+                        </li>
+                        <li>
+                            <h4>Package :</h4>
+                            <p>{{investment.package.name}}</p>
+                        </li>
+                        <li>
+                            <h4>Start:</h4>
+                            <p id="engtime" data-time="{{ investment.end_date|date:'M d, Y H:m:s' }}">{{investment.start_date|date:"M.d g:iA"}}</p>
+                        </li>
+                        <li>
+                            <h4>Status :</h4>
+                            <p class="{% if investment.status == 'active' %} text-primary {% elif  investment.status == 'pending' %} text-warning {% elif  investment.status == 'inactive' %} text-danger {% else %} text-success {% endif %}">{{investment.status}}</p>
+                        </li>
+                        {% if investment.status == 'completed' %}
+                        <li>
+                            <a href="{% url 'create_investment' %}" class="btn btn-red mt-2">Invest</a>
+
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+                {% else %}
+                <div class="tip-balance text-center " style="margin: 40px 0;">
+                    <h4 class="invest-tip ">
+                        Your Don't Have Any Current Investment
+
+                    </h4>
+                    <a href="{% url 'create_investment' %}" class="btn btn-red mt-3">Invest</a>
+                </div>
+                {% endif %}
+
+
+
+
+
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="auth-info-card card">
+                <div>
+                    <div class="auth-info-card-header">
+                        <h4 class="text-white">Activities</h4>
+                    </div>
+                    <div class="auth-info-card-body">
+                        {% for log in logs %}
+                        <div class="auth-info-item">
+                            <div class="d-flex ">
+                                <h5 class="text-white">Web</h5>
+                                <p class="ml-auto text-success">{{log.log_ip}}</p>
+                            </div>
+                            <div class="d-flex " style="margin-top: -11px;">
+                                <h5 class="text-gray-500">{{log.city}}</h5>
+                                <p class="ml-auto text-gray-500">{{log.date}}</p>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %} {% block scripts %}
+
+<!-- <script>
+    const FULL_DASH_ARRAY = 283;
+    const WARNING_THRESHOLD = 10;
+    const ALERT_THRESHOLD = 5;
+
+    const COLOR_CODES = {
+        info: {
+            color: "green"
+        },
+        warning: {
+            color: "orange",
+            threshold: WARNING_THRESHOLD
+        },
+        alert: {
+            color: "red",
+            threshold: ALERT_THRESHOLD
+        }
+    };
+
+    const TIME_LIMIT = 20;
+    let timePassed = 0;
+    let timeLeft = TIME_LIMIT;
+    let timerInterval = null;
+    let remainingPathColor = COLOR_CODES.info.color;
+
+    document.getElementById("timerblock").innerHTML = `
+<div class="base-timer">
+  <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <g class="base-timer__circle">
+      <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
+      <path
+        id="base-timer-path-remaining"
+        stroke-dasharray="283"
+        class="base-timer__path-remaining ${remainingPathColor}"
+        d="
+          M 50, 50
+          m -45, 0
+          a 45,45 0 1,0 90,0
+          a 45,45 0 1,0 -90,0
+        "
+      ></path>
+    </g>
+  </svg>
+  <span id="base-timer-label" class="base-timer__label">${formatTime(
+    timeLeft
+  )}</span>
+</div>
+`;
+
+    startTimer();
+
+    function onTimesUp() {
+        clearInterval(timerInterval);
+    }
+
+    function startTimer() {
+        timerInterval = setInterval(() => {
+            timePassed = timePassed += 1;
+            timeLeft = TIME_LIMIT - timePassed;
+            document.getElementById("base-timer-label").innerHTML = formatTime(
+                timeLeft
+            );
+            setCircleDasharray();
+            setRemainingPathColor(timeLeft);
+
+            if (timeLeft === 0) {
+                onTimesUp();
+            }
+        }, 1000);
+    }
+
+    function formatTime(time) {
+        const minutes = Math.floor(time / 60);
+        let seconds = time % 60;
+
+        if (seconds < 10) {
+            seconds = `0${seconds}`;
+        }
+
+        return `${minutes}:${seconds}`;
+    }
+
+    function setRemainingPathColor(timeLeft) {
+        const {
+            alert,
+            warning,
+            info
+        } = COLOR_CODES;
+        if (timeLeft <= alert.threshold) {
+            document
+                .getElementById("base-timer-path-remaining")
+                .classList.remove(warning.color);
+            document
+                .getElementById("base-timer-path-remaining")
+                .classList.add(alert.color);
+        } else if (timeLeft <= warning.threshold) {
+            document
+                .getElementById("base-timer-path-remaining")
+                .classList.remove(info.color);
+            document
+                .getElementById("base-timer-path-remaining")
+                .classList.add(warning.color);
+        }
+    }
+
+    function calculateTimeFraction() {
+        const rawTimeFraction = timeLeft / TIME_LIMIT;
+        return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
+    }
+
+    function setCircleDasharray() {
+        const circleDasharray = `${(
+    calculateTimeFraction() * FULL_DASH_ARRAY
+  ).toFixed(0)} 283`;
+        document
+            .getElementById("base-timer-path-remaining")
+            .setAttribute("stroke-dasharray", circleDasharray);
+    }
+</script> -->
+{% if investment.status == 'active' %}
+<script>
+    $(document).ready(function() {
+        /* csrf token */
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        const csrftoken = getCookie('csrftoken');
+
+        const FULL_DASH_ARRAY = 283;
+        const WARNING_THRESHOLD = 10;
+        const ALERT_THRESHOLD = 5;
+
+        const COLOR_CODES = {
+            info: {
+                color: "green"
+            },
+            warning: {
+                color: "orange",
+                threshold: WARNING_THRESHOLD
+            },
+            alert: {
+                color: "red",
+                threshold: ALERT_THRESHOLD
+            }
+        };
+
+        var endtime = $('#engtime').data('time')
+            //const TIME_LIMIT = endtime;
+        TIME_LIMIT = Date.parse(endtime);
+        console.log(TIME_LIMIT)
+        let timePassed = 0;
+        let timeLeft = TIME_LIMIT;
+        let timerInterval = null;
+        let remainingPathColor = COLOR_CODES.info.color;
+
+        document.getElementById("timerblock").innerHTML = `
+<div class="base-timer">
+<svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<g class="base-timer__circle">
+  <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
+  <path
+    id="base-timer-path-remaining"
+    stroke-dasharray="283"
+    class="base-timer__path-remaining ${remainingPathColor}"
+    d="
+      M 50, 50
+      m -45, 0
+      a 45,45 0 1,0 90,0
+      a 45,45 0 1,0 -90,0
+    "
+  ></path>
+</g>
+</svg>
+<span id="base-timer-label" class="base-timer__label">${formatTime(
+endtime
+)}</span>
+</div>
+`;
+
+        startTimer();
+
+        function onTimesUp() {
+            clearInterval(timerInterval);
+
+
+        }
+
+        function credit_user() {
+            $.ajax({
+                type: "POST",
+                url: "/credit-user-investment/",
+                data: {
+
+                    csrfmiddlewaretoken: csrftoken,
+                },
+
+                success: function(data) {
+                    window.location.reload();
+
+                },
+
+            });
+        }
+
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                var now = new Date().getTime();
+                const eventDate = Date.parse(endtime);
+                var distance = eventDate - now;
+                // Time calculations for days, hours, minutes and seconds
+                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                timePassed = timePassed += 1;
+                timeLeft = TIME_LIMIT - timePassed;
+
+
+                document.getElementById("base-timer-label").innerHTML = formatTime(
+                    distance
+                );
+                setCircleDasharray();
+                setRemainingPathColor(distance);
+
+                if (distance < 0) {
+                    document.getElementById("base-timer-label").innerHTML = formatTime(
+                        distance
+                    );
+                    onTimesUp();
+                    credit_user()
+
+                }
+            }, 1000);
+        }
+
+        function formatTime(distance) {
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            if (distance < 0) {
+                seconds = 0;
+                days = 0
+                hours = 0
+                minutes = 0
+                s = 0
+            }
+
+            return `${days}d:${hours}h:${minutes}m:${seconds}s`;
+        }
+
+        function setRemainingPathColor(timeLeft) {
+            const {
+                alert,
+                warning,
+                info
+            } = COLOR_CODES;
+            if (timeLeft <= alert.threshold) {
+                document
+                    .getElementById("base-timer-path-remaining")
+                    .classList.remove(warning.color);
+                document
+                    .getElementById("base-timer-path-remaining")
+                    .classList.add(alert.color);
+            } else if (timeLeft <= warning.threshold) {
+                document
+                    .getElementById("base-timer-path-remaining")
+                    .classList.remove(info.color);
+                document
+                    .getElementById("base-timer-path-remaining")
+                    .classList.add(warning.color);
+            }
+        }
+
+        function calculateTimeFraction() {
+            const rawTimeFraction = timeLeft / TIME_LIMIT;
+            return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
+        }
+
+        function setCircleDasharray() {
+            const circleDasharray = `${(
+calculateTimeFraction() * FULL_DASH_ARRAY
+).toFixed(0)} 283`;
+            document
+                .getElementById("base-timer-path-remaining")
+                .setAttribute("stroke-dasharray", circleDasharray);
+        }
+
+    });
+</script>
+{% else %}
+<script>
+    const COLOR_CODES = {
+        info: {
+            color: "green"
+        },
+        warning: {
+            color: "orange",
+
+        },
+        alert: {
+            color: "red",
+
+        }
+    };
+
+
+    let remainingPathColor = COLOR_CODES.info.color;
+    document.getElementById("timerblock").innerHTML = `
+<div class="base-timer">
+  <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <g class="base-timer__circle">
+      <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
+      <path
+        id="base-timer-path-remaining"
+        stroke-dasharray="283"
+        class="base-timer__path-remaining ${remainingPathColor}"
+        d="
+          M 50, 50
+          m -45, 0
+          a 45,45 0 1,0 90,0
+          a 45,45 0 1,0 -90,0
+        "
+      ></path>
+    </g>
+  </svg>
+  <span id="base-timer-label" class="base-timer__label">${formatTime(
+     
+  )}</span>
+</div>
+`;
+
+    function formatTime() {
+
+        seconds = 0;
+        days = 0
+        hours = 0
+        minutes = 0
+        s = 0
+
+
+        return `${days}:${hours}:${minutes}:${seconds}`;
+    }
+</script>
+
+{% endif %} {% endblock scripts %}
