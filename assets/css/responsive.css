@@ -229,9 +229,10 @@
         height: 308px;
     }
     .auth-info-card {
+        margin-top: 10px;
         margin-bottom: 20px;
-        margin-left: 15px;
-        width: 92%;
+        /* margin-left: 15px;
+        width: 92%; */
     }
     .dashboard-footer {
         left: 0;

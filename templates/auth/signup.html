@@ -113,7 +113,14 @@ Sign Up {% endblock title %} {% block styles %}
     </div>
   </div>
 </div>
-{% endblock content %} {% block scripts %}
+{% if act == 'verify-email' %}
+<script>
+  setTimeout(() => {
+    window.location.href = "/sign-in";
+  }, 5000);
+</script>
+
+{% endif %} {% endblock content %} {% block scripts %}
 <script>
   $(".close-auth-dialog  ").on("click", function () {
     $(".auth-dialog").removeClass("active");
