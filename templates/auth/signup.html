@@ -1,121 +1,123 @@
-{% extends 'layouts/base.html' %} {% load crispy_forms_tags %} {% block title %} Sign Up {% endblock title %} {% block styles %}
+{% extends 'layouts/base.html' %} {% load crispy_forms_tags %} {% block title %}
+Sign Up {% endblock title %} {% block styles %}
 <style>
-    .help-block {
-        color: red !important;
-    }
+  .help-block {
+    color: red !important;
+  }
 </style>
 {% endblock styles %} {% block herosection %}
-
 
 <!--[banner section ]-->
 
 <div id="banner" class="set-bg" data-bg="/assets/images/banner1.jpg">
-    <div class="container">
-        <div class="row   ml-b-30">
-            <div class="col-lg-10  mrb-30">
-                <div class="banner-content">
-
-                    <div class="breadcrumb-area">
-                        <h2 class="title text-left">Sign Up</h2>
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="/">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Create An Account</li>
-                            </ol>
-                        </nav>
-                    </div>
-                </div>
-            </div>
+  <div class="container">
+    <div class="row ml-b-30">
+      <div class="col-lg-10 mrb-30">
+        <div class="banner-content">
+          <div class="breadcrumb-area">
+            <h2 class="title text-left">Sign Up</h2>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  Create An Account
+                </li>
+              </ol>
+            </nav>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 <!--[banner ends]-->
 
-
 {% endblock herosection %} {% block content %}
 
-
 <section class="section-page mt-5">
-    <div class="container">
-        <div class="row  d-flex  justify-content-center">
-            <div class="col-lg-12">
-                <h5 style="    color: #DA5344;">Join our community today:</h5>
-                <form action="" method="post" data-aos="zoom-in-down">
-                    {% csrf_token %}
-                    <div class="row">
-                        <div class="form-group mt-3 col-lg-6">
-                            {{ form.fullname|as_crispy_field}}
-                        </div>
-
-                        <div class="form-group mt-3 col-lg-6">
-                            {{ form.username|as_crispy_field}}
-                        </div>
-
-                        <div class="form-group mt-3 col-lg-4">
-                            {{ form.email|as_crispy_field}}
-                        </div>
-
-                        <div class="form-group mt-3 col-lg-4">
-                            {{ form.password1|as_crispy_field}}
-                        </div>
-                        <div class="form-group mt-3 col-lg-4">
-                            {{ form.password2|as_crispy_field}}
-                        </div>
-                    </div>
-                    <div class="form-group mt-4 col-lg-12 ">
-                        <p class="text-center">Already have an account? <a href="/sign-in">Login</a></p>
-                        <div>
-                            {% if messages %} {% for msg in messages %}
-                            <div class="messages" data-msg="{{ msg }}">{{msg.tags}}</div>
-                            {% endfor %} {% endif %}
-                        </div>
-
-
-                    </div>
-                    {% if ref_code != None %}
-                    <input type="hidden" name="ref_code" value="{{ref_code}}"> {% endif %}
-                    <div class="row justify-content-center">
-
-                        <div class="d-grid gap-2">
-                            <input type="submit" value="Register" class="btn btn-red" placeholder="">
-                        </div>
-                    </div>
-
-                </form>
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="col-lg-12">
+        <h5 style="color: #da5344">Join our community today:</h5>
+        <form
+          action=""
+          method="post"
+          data-aos="zoom-in-down"
+          autocomplete="off"
+        >
+          {% csrf_token %}
+          <div class="row">
+            <div class="form-group mt-3 col-lg-6">
+              {{ form.fullname|as_crispy_field}}
             </div>
-        </div>
+
+            <div class="form-group mt-3 col-lg-6">
+              {{ form.username|as_crispy_field}}
+            </div>
+
+            <div class="form-group mt-3 col-lg-4">
+              {{ form.email|as_crispy_field}}
+            </div>
+
+            <div class="form-group mt-3 col-lg-4">
+              {{ form.password1|as_crispy_field}}
+            </div>
+            <div class="form-group mt-3 col-lg-4">
+              {{ form.password2|as_crispy_field}}
+            </div>
+          </div>
+          <div class="form-group mt-4 col-lg-12">
+            <p class="text-center">
+              Already have an account? <a href="/sign-in">Login</a>
+            </p>
+            <div>
+              {% if messages %} {% for msg in messages %}
+              <div class="messages" data-msg="{{ msg }}">{{msg.tags}}</div>
+              {% endfor %} {% endif %}
+            </div>
+          </div>
+          {% if ref_code != None %}
+          <input type="hidden" name="ref_code" value="{{ref_code}}" />
+          <!---->
+          {% endif %}
+          <div class="row justify-content-center">
+            <div class="d-grid gap-2">
+              <input
+                type="submit"
+                value="Register"
+                class="btn btn-red"
+                placeholder=""
+              />
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
 </section>
 
-
-
-
-
-
-<div class="auth-dialog {% if act == 'verify-email' %} active  {% endif %}">
-    <div class="auth-dialog-content">
-
-        <div class="auth-icon   animate" style="display: block;">
-            <i class="fas fa-check"></i>
-        </div>
-        <h2>Account Created</h2>
-        <p>Account Created successfully check your mail for verification email</p>
-
-
-        <div class="close-auth-dialog mt-4">
-            <div class="d-grid gap-2 col-4 mx-auto">
-                <button type="button" class="btn btn-success close-auth-dialog">Done</button>
-
-            </div>
-        </div>
+<div class="auth-dialog {% if act == 'verify-email' %} active {% endif %}">
+  <div class="auth-dialog-content">
+    <div class="auth-icon animate" style="display: block">
+      <i class="fas fa-check"></i>
     </div>
+    <h2>Account Created</h2>
+    <p>Account Created successfully check your mail for verification email</p>
+
+    <div class="close-auth-dialog mt-4">
+      <div class="d-grid gap-2 col-4 mx-auto">
+        <button type="button" class="btn btn-success close-auth-dialog">
+          Done
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock content %} {% block scripts %}
 <script>
-    $('.close-auth-dialog  ').on('click', function() {
-
-        $('.auth-dialog').removeClass('active')
-    })
+  $(".close-auth-dialog  ").on("click", function () {
+    $(".auth-dialog").removeClass("active");
+  });
 </script>
 
 {% endblock scripts %}

@@ -1,150 +1,224 @@
-{% extends 'layouts/base.html' %} {% block title %} About us {% endblock title %} {% block herosection %}
-
-
-
-
+{% extends 'layouts/base.html' %}
+<!---->
+{% block title %} About us {% endblock title %} {% block herosection %}
 
 <!--[banner section ]-->
 
 <div id="banner" class="set-bg" data-bg="/assets/images/banner1.jpg">
-    <div class="container">
-        <div class="row   ml-b-30">
-            <div class="col-lg-10  mrb-30">
-                <div class="banner-content">
-
-                    <div class="breadcrumb-area">
-                        <h2 class="title text-left">About Us</h2>
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="/">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">About</li>
-                            </ol>
-                        </nav>
-                    </div>
-                </div>
-            </div>
+  <div class="container">
+    <div class="row ml-b-30">
+      <div class="col-lg-10 mrb-30">
+        <div class="banner-content">
+          <div class="breadcrumb-area">
+            <h2 class="title text-left">About Us</h2>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  About
+                </li>
+              </ol>
+            </nav>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 <!--[banner ends]-->
-
-
 
 {% endblock herosection %} {% block content %}
 
 <section class="section-page mt-5">
-    <div class="container">
-        <div class="section-block">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="section-img" data-aos="fade-right"><img class="img-fluid" src="/assets/images/about-img.png" alt=""></div>
-                </div>
-                <div class="col-lg-8">
-                    <h1 class="section-title" data-aos="fade-up"><span>Why our </span>company?</h1>
-                    <div class="section-text">
-                        <p data-aos="fade-up" data-aos-delay="200">In {{domain}} company work high-qualified specialists in the spheres of finances, programming, analytics, and mathematics who have been dealing with currency trading for more than 10 years. We brought together real experts who
-                            actively work on the company’s development, improve it and create new directions of its activity.
-                        </p>
-                        <p data-aos="fade-up" data-aos-delay="400">Due to the usage of the advanced technologies, high-qualified analytics and development of the most profitable investment strategies our investment plans don’t consider depositing large amounts and give opportunities to start earning
-                            to absolutely everyone.
-                        </p>
-                    </div>
-                </div>
-            </div>
+  <div class="container">
+    <div class="section-block">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="section-img" data-aos="fade-right">
+            <img class="img-fluid" src="/assets/images/about-img.png" alt="" />
+          </div>
         </div>
-        <div class="section-block">
-            <div class="row">
-                <div class="col-lg-8">
-                    <h2 class="section-block__title" data-aos="fade-up">About the company</h2>
-                    <div class="section-text" data-aos="fade-up"><img class="align--left" src="/assets/images/about-img2.png" alt="">
-                        <p>Trading on the Forex market is one of the most profitable types of earning today. However, this kind of activity, like any other one, appears to be quite risky. It is especially dangerous to do alone and without needed experience
-                            and knowledge in the trading sphere. Investment platform {{domain}} helps beginners as well as experienced traders to have regular income with clear payments and minimal investments.
-
-                        </p>
-                        <p>{{domain}} company is an international trading organization which helps its clients to do sound and safe currency investments and therefore to have earnings doing this. Successful running of the company is provided by a detailed
-                            analysis of the market, competitors’ strategies and trading features of a particularly taken stock exchange. We cooperate with the world largest trading platforms and do our business on the leading fiat and cryptocurrency markets.
-
-                        </p>
-                        <p>Become a part of the team of professional traders and analysts. Invest in our investment plans in order to provide yourself with sustainably high profits. Also, there is a chance to have passive income participating in our referral
-                            program. Get registered in order to get closer information about the advantages of the platform and begin investments.
-
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <h2 class="section-block__title" data-aos="fade-up" data-aos-delay="200"></h2>
-                    <div class="about-video" data-aos="fade-up" data-aos-delay="200"><img class="img-fluid" src="/assets/images/about-video.png" alt=""></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+        <div class="col-lg-8">
+          <h1 class="section-title" data-aos="fade-up">
+            <span>Why our </span>company?
+          </h1>
+          <div class="section-text">
+            <p data-aos="fade-up" data-aos-delay="200">
+              In {{domain}} company work high-qualified specialists in the
+              spheres of finances, programming, analytics, and mathematics who
+              have been dealing with currency trading for more than 10 years. We
+              brought together real experts who actively work on the company’s
+              development, improve it and create new directions of its activity.
+            </p>
+            <p data-aos="fade-up" data-aos-delay="400">
+              Due to the usage of the advanced technologies, high-qualified
+              analytics and development of the most profitable investment
+              strategies our investment plans don’t consider depositing large
+              amounts and give opportunities to start earning to absolutely
+              everyone.
+            </p>
+          </div>
         </div>
-        <div class="section-block">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2 class="section-block__title">Referral program</h2>
-                    <div class="section-text">
-                        <p>Participate in our three-level referral program and provide yourself with additional income by inviting new investors on the site. Share your link and get 7% of deposits of those who have followed it, registered and made the first
-                            deposit. Also, you get 1% of deposits of those who were invited by your friends and 1% from the third level of the system.
-
-                        </p>
-                    </div>
-                    <div class="about-advantages">
-                        <div class="about-advantages-item" data-aos="fade-up-left"><i class="about-advantages-item__icon ab1--icon"></i>
-                            <div class="about-advantages-item__title">Range of plans</div>
-                            <div class="about-advantages-item__text">We offer you a choice of 5 optimally developed investment plans which give an opportunity to get up to 160% of income with minimal risks.
-                            </div>
-                        </div>
-                        <div class="about-advantages-item" data-aos="fade-up-left"><i class="about-advantages-item__icon ab2--icon"></i>
-                            <div class="about-advantages-item__title">Flexible systems</div>
-                            <div class="about-advantages-item__text">Our trading strategies allow to adapt to any market fluctuations and get everyday profits beneficially using changes in currency rates.
-                            </div>
-                        </div>
-                        <div class="about-advantages-item" data-aos="fade-up-left"><i class="about-advantages-item__icon ab3--icon"></i>
-                            <div class="about-advantages-item__title">Professional staff</div>
-                            <div class="about-advantages-item__text">Our team includes only professional traders and financial analysts with more than 10 years’ Forex and other currency stock markets trading experience.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="about-certificate">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="section-text">
-                                    <h3>COMPANY CERTIFICATE</h3>
-                                    <p>Our company has official registration and acts as an international financial organization. The certificate gives us the right to do our business in the international financial market and conduct safe trading transactions.
-
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="certificate-list">
-                                    <ul>
-                                        <li data-aos="flip-right" data-aos-delay="100">
-                                            <a class="certificate-img image-popup" href="/assets/images/cert1.jpg"><img class="img-fluid" src="/assets/images/cert1.jpg" alt=""></a>
-                                        </li>
-
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="about-list">
-                        <div class="section-text">
-                            <h3>How it works?</h3>
-                        </div>
-
-                        <ul>
-                            <li data-aos="fade-up">Get registered on the {{domain}} company website. In order to start investing, you have to fill in the registration form. All the process will take you not more than three minutes. </li>
-                            <li data-aos="fade-up">Make a deposit. Choose a suitable investment plan which fits best according to your requirements and wishes. You can choose one or more investment plans.</li>
-                            <li data-aos="fade-up">Receive profits. During the whole investment period, our traders will actively trade on various stock exchanges and receive profits, a part of which will be sent to your account.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+    <div class="section-block">
+      <div class="row">
+        <div class="col-lg-8">
+          <h2 class="section-block__title" data-aos="fade-up">
+            About the company
+          </h2>
+          <div class="section-text" data-aos="fade-up">
+            <img
+              class="align--left"
+              src="/assets/images/about-img2.png"
+              alt=""
+            />
+            <p>
+              Trading on the Forex market is one of the most profitable types of
+              earning today. However, this kind of activity, like any other one,
+              appears to be quite risky. It is especially dangerous to do alone
+              and without needed experience and knowledge in the trading sphere.
+              Investment platform {{domain}} helps beginners as well as
+              experienced traders to have regular income with clear payments and
+              minimal investments.
+            </p>
+            <p>
+              {{domain}} company is an international trading organization which
+              helps its clients to do sound and safe currency investments and
+              therefore to have earnings doing this. Successful running of the
+              company is provided by a detailed analysis of the market,
+              competitors’ strategies and trading features of a particularly
+              taken stock exchange. We cooperate with the world largest trading
+              platforms and do our business on the leading fiat and
+              cryptocurrency markets.
+            </p>
+            <p>
+              Become a part of the team of professional traders and analysts.
+              Invest in our investment plans in order to provide yourself with
+              sustainably high profits. Also, there is a chance to have passive
+              income participating in our referral program. Get registered in
+              order to get closer information about the advantages of the
+              platform and begin investments.
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <h2
+            class="section-block__title"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          ></h2>
+          <div class="about-video" data-aos="fade-up" data-aos-delay="200">
+            <img
+              class="img-fluid"
+              src="/assets/images/about-video.png"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section-block">
+      <div class="row">
+        <div class="col-lg-12">
+          <h2 class="section-block__title">Referral program</h2>
+          <div class="section-text">
+            <p>
+              Participate in our three-level referral program and provide
+              yourself with additional income by inviting new investors on the
+              site. Share your link and get 7% of deposits of those who have
+              followed it, registered and made the first deposit. Also, you get
+              1% of deposits of those who were invited by your friends and 1%
+              from the third level of the system.
+            </p>
+          </div>
+          <div class="about-advantages">
+            <div class="about-advantages-item" data-aos="fade-up-left">
+              <i class="about-advantages-item__icon ab1--icon"></i>
+              <div class="about-advantages-item__title">Range of plans</div>
+              <div class="about-advantages-item__text">
+                We offer you a choice of 5 optimally developed investment plans
+                which give an opportunity to get up to 160% of income with
+                minimal risks.
+              </div>
+            </div>
+            <div class="about-advantages-item" data-aos="fade-up-left">
+              <i class="about-advantages-item__icon ab2--icon"></i>
+              <div class="about-advantages-item__title">Flexible systems</div>
+              <div class="about-advantages-item__text">
+                Our trading strategies allow to adapt to any market fluctuations
+                and get everyday profits beneficially using changes in currency
+                rates.
+              </div>
+            </div>
+            <div class="about-advantages-item" data-aos="fade-up-left">
+              <i class="about-advantages-item__icon ab3--icon"></i>
+              <div class="about-advantages-item__title">Professional staff</div>
+              <div class="about-advantages-item__text">
+                Our team includes only professional traders and financial
+                analysts with more than 10 years’ Forex and other currency stock
+                markets trading experience.
+              </div>
+            </div>
+          </div>
+          <div class="about-certificate">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="section-text">
+                  <h3>COMPANY CERTIFICATE</h3>
+                  <p>
+                    Our company has official registration and acts as an
+                    international financial organization. The certificate gives
+                    us the right to do our business in the international
+                    financial market and conduct safe trading transactions.
+                  </p>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="certificate-list">
+                  <ul>
+                    <li data-aos="flip-right" data-aos-delay="100">
+                      <a
+                        class="certificate-img image-popup"
+                        href="/assets/images/cert.jpg"
+                        ><img
+                          class="img-fluid"
+                          src="/assets/images/cert.jpg"
+                          alt=""
+                      /></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="about-list">
+            <div class="section-text">
+              <h3>How it works?</h3>
+            </div>
+
+            <ul>
+              <li data-aos="fade-up">
+                Get registered on the {{domain}} company website. In order to
+                start investing, you have to fill in the registration form. All
+                the process will take you not more than three minutes.
+              </li>
+              <li data-aos="fade-up">
+                Make a deposit. Choose a suitable investment plan which fits
+                best according to your requirements and wishes. You can choose
+                one or more investment plans.
+              </li>
+              <li data-aos="fade-up">
+                Receive profits. During the whole investment period, our traders
+                will actively trade on various stock exchanges and receive
+                profits, a part of which will be sent to your account.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
-
-
 
 {% endblock content %}
