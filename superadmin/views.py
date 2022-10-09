@@ -136,7 +136,7 @@ def withdrawal_detail(request,pk):
         transaction = None
         return redirect('withdrawal_')
     if request.POST:
-        print("post",transaction)
+         
         submit = request.POST.get('submit')
         if submit == 'decline':
             transaction.status = 'declined'
