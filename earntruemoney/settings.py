@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     #'django_user_agents',
-    "geoip2",
+    # "geoip2",
     "crispy_forms",
     "accounts",
     "dashboard",
@@ -148,7 +148,7 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 
-GEOIP_PATH = os.path.join("geoip")
+# GEOIP_PATH = os.path.join("geoip")
 
 
 # EMAIL_BACKEND = env("EMAIL_BACKEND")
