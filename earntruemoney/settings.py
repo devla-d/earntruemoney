@@ -142,7 +142,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 AUTH_USER_MODEL = "accounts.Account"
 
 
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+# EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 LOGIN_URL = "sign_in"
 LOGIN_REDIRECT_URL = "dashboard"
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
@@ -152,10 +152,10 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 # GEOIP_PATH = os.path.join("geoip")
 
 
-# EMAIL_BACKEND = env("EMAIL_BACKEND")
-# EMAIL_HOST = env("EMAIL_HOST")
-# EMAIL_USE_TLS = env("EMAIL_USE_TLS")
-# EMAIL_PORT = env("EMAIL_PORT")
-# EMAIL_HOST_USER = env("EMAIL_HOST_USER")
-# EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
-# DEFAULT_FROM_EMAIL = env("DEFAULT_FROM_EMAIL")
+EMAIL_BACKEND = env("EMAIL_BACKEND")
+EMAIL_HOST = env("EMAIL_HOST")
+EMAIL_USE_TLS = env("EMAIL_USE_TLS")
+EMAIL_PORT = env("EMAIL_PORT")
+EMAIL_HOST_USER = env("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
+DEFAULT_FROM_EMAIL = env("DEFAULT_FROM_EMAIL")
