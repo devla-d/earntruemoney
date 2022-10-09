@@ -102,7 +102,7 @@
       </div>
     </div> -->
     <div class="col-lg-4">
-      <div class="auth-info-card card">
+      <div class="auth-info-card card mb-5">
         <div>
           <div class="auth-info-card-header">
             <h4 class="text-white">Activities</h4>
@@ -110,13 +110,21 @@
           <div class="auth-info-card-body">
             {% for log in logs %}
             <div class="auth-info-item">
-              <div class="d-flex">
+              <div
+                class="d-flex"
+                style="align-items: center; justify-content: space-between"
+              >
                 <h5 class="text-white">Web</h5>
-                <p class="ml-auto text-success">{{log.log_ip}}</p>
-              </div>
-              <div class="d-flex" style="margin-top: -11px">
-                <h5 class="text-gray-500">{{log.city}}</h5>
-                <p class="ml-auto text-gray-500">{{log.date}}</p>
+
+                <div style="margin-top: -11px">
+                  <!-- <h5 class="text-gray-500">{{log.city}}</h5> -->
+                  <p class="ml-auto text-success" style="margin: 10px 0">
+                    {{log.log_ip}}
+                  </p>
+                  <p class="ml-auto text-gray-500" style="margin: 10px 0">
+                    {{log.date}}
+                  </p>
+                </div>
               </div>
             </div>
             {% endfor %}

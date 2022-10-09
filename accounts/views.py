@@ -1,9 +1,6 @@
-from venv import create
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
-from django.utils import timezone
-from datetime import timedelta, datetime
 
 from django.contrib.auth.tokens import default_token_generator
 from django.contrib.sites.shortcuts import get_current_site
@@ -128,7 +125,6 @@ def sign_in(request):
                     return redirect(f"{destination}")
                 else:
                     return redirect("dashboard")
-                # return redirect('dashboard')
         else:
             messages.warning(request, ("Invalid Username Or Password."))
             return redirect("sign_in")
