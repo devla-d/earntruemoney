@@ -113,29 +113,29 @@
           <div class="d-flex space-bt">
             <form action="" method="post">
               {% csrf_token %}
-              <input type="hidden" name="submit" value="decline" /> {% if
-              transaction.status == 'pending' %}
+              <input type="hidden" name="submit" value="decline" />
+              {% if transaction.status == 'pending' %}<!---->
               <button type="submit" class="btn btn-danger">
                 <i class="fas fa-ban"></i> Decline
               </button>
-              {% else %}
+              {% else %}<!---->
               <button type="submit" disabled class="btn btn-danger">
                 <i class="fas fa-ban"></i> Decline
               </button>
-              {% endif %}
+              {% endif %}<!---->
             </form>
             <form action="" method="post">
               {% csrf_token %}
-              <input type="hidden" name="submit" value="approve" /> {% if
-              transaction.status == 'pending' %}
+              <input type="hidden" name="submit" value="approve" />
+              {% if transaction.status == 'pending' %}<!---->
               <button type="submit" class="btn btn-success">
                 <i class="fas fa-check"></i> Approve
               </button>
-              {% else %}
+              {% else %}<!---->
               <button type="submit" disabled class="btn btn-success">
                 <i class="fas fa-check"></i> Approve
               </button>
-              {% endif %}
+              {% endif %}<!---->
             </form>
           </div>
         </div>
