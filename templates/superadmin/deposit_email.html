@@ -131,11 +131,18 @@
                 style="padding: 35px 35px 20px 35px; background-color: #ffffff"
                 bgcolor="#ffffff"
               >
-                <div class="logo" style="padding: 0px">
+                <div
+                  class="logo"
+                  style="
+                    padding: 0px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  "
+                >
                   <img
                     src="https://earntrue.money/assets/images/logo.png"
-                    width="220"
-                    height="220"
+                    width="140"
                     style="display: block; border: 0px"
                     alt=""
                   />
@@ -178,7 +185,7 @@
                         font-weight: 400;
                         line-height: 18px;
                       "
-                      >${{amount}}</small
+                      >${{transaction.amount}}</small
                     >
                   </h4>
                   <h4 style="font-size: 20px; font-weight: 400">
